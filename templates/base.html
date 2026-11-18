@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}SupplyChain AI — Executive Inventory Overview{% endblock %}</title>
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              bg: '#09090b',          /* Clean obsidian dark */
+              card: '#121215',        /* Elevated clean surface */
+              border: 'rgba(255, 255, 255, 0.08)',
+              borderSubtle: 'rgba(255, 255, 255, 0.04)',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- FontAwesome CDN (Backward-compatible support) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* Clean subtle glows without visual noise */
+    .glow-card-green {
+      box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+    .glow-card-red {
+      box-shadow: 0 0 25px -5px rgba(244, 63, 94, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+    .glow-card-amber {
+      box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+    .glow-card-cyan {
+      box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+    .glow-card-indigo {
+      box-shadow: 0 0 25px -5px rgba(99, 102, 241, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    /* Custom smooth scrollbars */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(9, 9, 11, 0.5); }
+    ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.12); border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.22); }
+  </style>
+
+  {% block extra_head %}{% endblock %}
+</head>
+<body class="bg-[#09090b] text-zinc-100 min-h-screen flex flex-col font-sans antialiased selection:bg-cyan-500 selection:text-black">
+
+  <!-- ===================================================================== -->
+  <!-- TOP EXECUTIVE NAVBAR (Clean, distraction-free, Apple-like)            -->
+  <!-- ===================================================================== -->
+  <header class="bg-[#0e0e12]/90 backdrop-blur-xl border-b border-[rgba(255,255,255,0.08)] sticky top-0 z-50 px-4 sm:px-8 py-3.5 shadow-lg">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+      
+      <!-- Logo + Simple Product Identity -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-cyan-500 flex items-center justify-center shadow-lg shadow-emerald-500/20 text-zinc-950 font-black text-lg">
+          <i data-lucide="shield-check" class="w-6 h-6 text-zinc-950"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-base font-extrabold tracking-tight text-white">SupplyChain AI</h1>
+            <span class="px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center gap-1.5 font-mono">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              Auto-Pilot Active
+            </span>
+          </div>
+          <p class="text-xs text-zinc-400">Autonomous Inventory Protection for Business Owners</p>
+        </div>
+      </div>
+
+      <!-- Mode Switcher & Top Action Buttons -->
+      <div class="flex items-center flex-wrap gap-2.5">
+        <!-- Mode Switcher -->
+        <div class="bg-[#141418] p-1 rounded-xl border border-[rgba(255,255,255,0.08)] flex items-center text-xs font-semibold shadow-inner">
+          <button onclick="setUIMode('executive')" id="btn-mode-exec" class="px-3.5 py-1.5 rounded-lg bg-cyan-600 text-white shadow-md shadow-cyan-600/30 transition flex items-center gap-1.5 cursor-pointer">
+            <i data-lucide="user-check" class="w-3.5 h-3.5"></i> Executive (Simple)
+          </button>
+          <button onclick="setUIMode('expert')" id="btn-mode-expert" class="px-3.5 py-1.5 rounded-lg text-zinc-400 hover:text-zinc-200 transition flex items-center gap-1.5 cursor-pointer">
+            <i data-lucide="bar-chart-3" class="w-3.5 h-3.5"></i> Deep Dive (Analyst)
+          </button>
+        </div>
+
+        <button onclick="refreshDashboard()" class="px-3 py-1.5 rounded-xl bg-[#141418] hover:bg-[#1a1a20] text-zinc-300 text-xs font-semibold transition border border-[rgba(255,255,255,0.08)] flex items-center gap-1.5 cursor-pointer active:scale-95">
+          <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-cyan-400"></i> Refresh
+        </button>
+
+        <button onclick="triggerAutonomousCycle()" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-zinc-950 font-extrabold text-xs transition flex items-center gap-1.5 shadow-lg shadow-emerald-500/25 cursor-pointer active:scale-95">
+          <i data-lucide="zap" class="w-3.5 h-3.5"></i> Run Auto-Pilot Cycle
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- TOAST NOTIFICATION                                                    -->
+  <!-- ===================================================================== -->
+  <div id="toast-notification" class="fixed top-20 right-6 z-50 hidden bg-[#141418]/95 border border-cyan-500/40 text-white px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-3 backdrop-blur-xl transition-all duration-300 max-w-md">
+    <div class="w-8 h-8 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center shrink-0">
+      <i class="fa-solid fa-circle-check text-base" id="toast-icon"></i>
+    </div>
+    <div class="min-w-0">
+      <h4 class="text-xs font-bold text-white tracking-wide" id="toast-title">Success</h4>
+      <p class="text-[11px] text-zinc-300 truncate" id="toast-msg">Operation completed</p>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MAIN WORKSPACE CONTENT CONTAINER                                      -->
+  <!-- ===================================================================== -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-7">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- CLEAN EXECUTIVE FOOTER                                                -->
+  <!-- ===================================================================== -->
+  <footer class="border-t border-[rgba(255,255,255,0.06)] px-8 py-6 text-center text-xs text-zinc-500 font-mono">
+    SupplyChain AI &bull; Built for Autonomous Business Protection &bull; Zero Stockouts
+  </footer>
+
+  <!-- Initialize Lucide Icons -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    });
+  </script>
+
+  {% block scripts %}{% endblock %}
+
+</body>
+</html>

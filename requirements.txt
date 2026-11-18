@@ -1,0 +1,40 @@
+# ==============================================================================
+# Supply Chain AI Platform - Requirements
+# ==============================================================================
+
+# Framework & REST API
+Django>=5.0,<5.2
+djangorestframework>=3.15.0
+django-cors-headers>=4.3.1
+django-environ>=0.11.2
+
+# Database (PostgreSQL, pgvector, TimescaleDB driver)
+psycopg[binary]>=3.1.18
+psycopg2-binary>=2.9.9
+pgvector>=0.2.5
+
+# Asynchronous Background Worker & Broker (Celery, Redis)
+celery>=5.3.6
+redis>=5.0.3
+django-celery-results>=2.5.1
+django-celery-beat>=2.6.0
+
+# High-Performance Data Processing & Analysis
+polars>=0.20.15
+numpy>=1.26.4
+pandas>=2.2.1
+
+# AI / Multi-Agent Orchestration & LLM Integration
+langchain>=0.1.13
+langchain-core>=0.1.33
+langchain-community>=0.0.29
+langchain-openai>=0.1.0
+pydantic>=2.6.4
+
+# Machine Learning & Baseline Forecasting
+scikit-learn>=1.4.1.post1
+
+# Utilities
+python-dateutil>=2.9.0
+requests>=2.31.0
+python-dotenv>=1.0.1

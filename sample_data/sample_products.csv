@@ -1,0 +1,8 @@
+sku,name,category,unit_cost,unit_price,baseline_rop,minimum_order_qty
+SKU-ELEC-1001,ARM Cortex-M4 Microcontroller,Semiconductors,4.5,12.0,250,100
+SKU-ELEC-1002,High-Efficiency Power MOSFET 60V,Power Electronics,1.2,3.8,500,200
+SKU-SENS-2001,Precision MEMS Accelerometer 3-Axis,Sensors,8.75,24.5,150,50
+SKU-SENS-2002,Infrared Thermal Pyrometer Sensor,Sensors,16.0,45.0,80,20
+SKU-OPTI-3001,Telecentric Machine Vision Lens 50mm,Optics,120.0,310.0,30,5
+SKU-POLY-4001,Thermally Conductive Epoxy Resin 5L,Materials,42.0,95.0,60,10
+SKU-COMM-5001,Industrial Gigabit Ethernet Transceiver,Networking,9.5,28.0,120,40

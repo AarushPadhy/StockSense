@@ -1,0 +1,6 @@
+name,contact_email,region,lead_time_days,risk_score,reliability_rating
+Shenzhen MicroElectronics Ltd,ops@sz-micro.cn,APAC,18,0.25,0.94
+Bavaria Precision Sensors GmbH,vertrieb@bavaria-sensors.de,EMEA,12,0.1,0.98
+Pacific Rim Logistics & Fab,supply@pacrim-fab.tw,APAC,21,0.45,0.88
+NorthStar Industrial Optics,orders@northstar-optics.com,NA,7,0.08,0.99
+Nordic Polymer Compounds AB,nordic@polymer-ab.se,EMEA,14,0.15,0.96
