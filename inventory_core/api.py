@@ -759,5 +759,57 @@ class AutonomousAuditLogsView(APIView):
         return Response({"count": len(data), "logs": data}, status=status.HTTP_200_OK)
 
 
+# ==============================================================================
+# 11. Unique Next-Gen AI Features (Copilot, Revenue Shield, Supplier Negotiator)
+# ==============================================================================
+class AICopilotView(APIView):
+    """
+    Plain English Executive Copilot: Answers questions about stockout hazards,
+    capital requirements, supplier reliability, and auto-pilot execution.
+    """
+    def post(self, request, *args, **kwargs):
+        from inventory_core.services.copilot import StockSenseCopilot
+        query = request.data.get('query', '')
+        if not query or len(query.strip()) < 2:
+            query = "What is the overall state of my supply chain?"
+        response_data = StockSenseCopilot.ask(query)
+        return Response(response_data, status=status.HTTP_200_OK)
+
+
+class RevenueRiskShieldView(APIView):
+    """
+    Translates inventory deficits into direct executive financial impact:
+    Lost Revenue, Lost Gross Margin, and Wasted Paid Ad Spend.
+    """
+    def get(self, request, *args, **kwargs):
+        from inventory_core.services.revenue_risk import RevenueRiskEngine
+        data = RevenueRiskEngine.evaluate_catalog_financial_exposure()
+        return Response(data, status=status.HTTP_200_OK)
+
+
+class AIVolumeNegotiatorView(APIView):
+    """
+    Evaluates tiered volume discount arbitrage opportunities and generates
+    an executive supplier negotiation email to capture margin gains.
+    """
+    def post(self, request, *args, **kwargs):
+        from inventory_core.services.ai_negotiator import AIVolumeDiscountArbitrageur
+        sku = request.data.get('product_sku')
+        if not sku:
+            prod = Product.objects.first()
+            sku = prod.sku if prod else "SKU-ELEC-1001"
+        qty = int(request.data.get('planned_order_qty', 0))
+
+        try:
+            result = AIVolumeDiscountArbitrageur.analyze_discount_arbitrage(
+                product_sku=sku,
+                planned_order_qty=qty
+            )
+            return Response(result, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
+
+
 
 

@@ -31,6 +31,9 @@ from inventory_core.api import (
     AutoPilotStatusView,
     AutoPilotRunCycleView,
     AutonomousAuditLogsView,
+    AICopilotView,
+    RevenueRiskShieldView,
+    AIVolumeNegotiatorView,
 )
 
 router = DefaultRouter()
@@ -87,4 +90,9 @@ urlpatterns = [
     path('automation/toggle/', AutoPilotStatusView.as_view(), name='automation-toggle'),
     path('automation/run-cycle/', AutoPilotRunCycleView.as_view(), name='automation-run-cycle'),
     path('automation/audit-logs/', AutonomousAuditLogsView.as_view(), name='automation-audit-logs'),
+
+    # Next-Gen Unique AI Features
+    path('ai/copilot/', AICopilotView.as_view(), name='ai-copilot'),
+    path('ai/revenue-at-risk/', RevenueRiskShieldView.as_view(), name='ai-revenue-at-risk'),
+    path('ai/negotiate/', AIVolumeNegotiatorView.as_view(), name='ai-negotiate'),
 ]

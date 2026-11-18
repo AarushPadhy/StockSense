@@ -27,6 +27,9 @@ endpoints = [
     ("GET", "/api/v1/analytics/eoq/?sku=SKU-COMM-5001", None),
     ("GET", "/api/v1/purchase-orders/", None),
     ("GET", "/api/v1/stock-transfers/", None),
+    ("POST", "/api/v1/ai/copilot/", {"query": "Which products will run out first?"}),
+    ("GET", "/api/v1/ai/revenue-at-risk/", None),
+    ("POST", "/api/v1/ai/negotiate/", {"product_sku": "SKU-ELEC-1001", "planned_order_qty": 100}),
 ]
 
 passed = 0

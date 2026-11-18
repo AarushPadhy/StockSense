@@ -33,6 +33,9 @@
         <button onclick="document.getElementById('autopilot-section').scrollIntoView({behavior:'smooth'})" class="px-4.5 py-2.5 rounded-full bg-[#1c1c1e] hover:bg-[#2c2c2e] text-[#f5f5f7] text-xs font-medium border border-white/[0.08] transition-all duration-200 flex items-center gap-2 cursor-pointer apple-btn">
           <i data-lucide="sliders" class="w-4 h-4 text-[#2997ff]"></i> Auto-Pilot Controls
         </button>
+        <button onclick="document.getElementById('copilot-section').scrollIntoView({behavior:'smooth'})" class="px-4.5 py-2.5 rounded-full bg-[#1c1c1e] hover:bg-[#2c2c2e] text-[#bf5af2] text-xs font-medium border border-[#bf5af2]/30 transition-all duration-200 flex items-center gap-2 cursor-pointer apple-btn">
+          <i data-lucide="sparkles" class="w-4 h-4 text-[#bf5af2]"></i> Ask StockSense AI
+        </button>
       </div>
     </div>
 
@@ -112,6 +115,115 @@
       <p class="text-xs text-[#86868b] mt-3 font-mono truncate" id="exec-kpi-delay-days">+0d delay flagged</p>
     </div>
 
+  </div>
+
+  <!-- Unique Competitive Feature: Revenue at Risk & Ad Spend Waste Shield -->
+  <div class="bg-[#121214]/90 border border-white/[0.08] rounded-2xl p-5 sm:p-6 space-y-3.5 backdrop-blur-xl">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <div class="flex items-center gap-2.5">
+        <div class="w-7 h-7 rounded-full bg-[#ff453a]/15 text-[#ff453a] flex items-center justify-center">
+          <i data-lucide="shield-alert" class="w-4 h-4"></i>
+        </div>
+        <div>
+          <h4 class="text-sm font-semibold text-white tracking-tight flex items-center gap-2">
+            <span>Financial Exposure &amp; Ad Spend Shield</span>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-medium bg-[#ff453a]/15 text-[#ff453a]" id="shield-vuln-count">Calculating...</span>
+          </h4>
+          <p class="text-xs text-[#86868b]">Translates inventory deficits into top-line revenue at risk and wasted paid ad spend.</p>
+        </div>
+      </div>
+      <button onclick="triggerAutonomousCycle()" class="px-4 py-1.5 rounded-full bg-[#ff453a] hover:bg-[#ff5b52] text-white text-xs font-medium transition cursor-pointer apple-btn self-start sm:self-auto shadow-sm shadow-[#ff453a]/20">
+        <i data-lucide="shield" class="w-3.5 h-3.5 inline mr-1"></i> Shield Revenue Now
+      </button>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs pt-1">
+      <div class="bg-[#161617] p-3 rounded-xl border border-white/[0.04]">
+        <span class="text-[#86868b] block text-[10px] uppercase font-medium">Top-Line at Risk</span>
+        <span class="text-base font-semibold font-mono text-[#ff453a] mt-0.5 block" id="shield-lost-rev">$0.00</span>
+      </div>
+      <div class="bg-[#161617] p-3 rounded-xl border border-white/[0.04]">
+        <span class="text-[#86868b] block text-[10px] uppercase font-medium">Gross Margin at Risk</span>
+        <span class="text-base font-semibold font-mono text-white mt-0.5 block" id="shield-lost-margin">$0.00</span>
+      </div>
+      <div class="bg-[#161617] p-3 rounded-xl border border-white/[0.04]">
+        <span class="text-[#86868b] block text-[10px] uppercase font-medium">Wasted Paid Ad Spend</span>
+        <span class="text-base font-semibold font-mono text-[#ff9f0a] mt-0.5 block" id="shield-wasted-ads">$0.00</span>
+      </div>
+      <div class="bg-[#161617] p-3 rounded-xl border border-white/[0.04]">
+        <span class="text-[#86868b] block text-[10px] uppercase font-medium">Customer LTV Loss</span>
+        <span class="text-base font-semibold font-mono text-[#bf5af2] mt-0.5 block" id="shield-ltv-loss">$0.00</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================================================= -->
+<!-- UNIQUE FEATURE: NATURAL LANGUAGE STOCKSENSE COPILOT WIDGET                -->
+<!-- ========================================================================= -->
+<section id="copilot-section" class="apple-glass rounded-3xl p-6 sm:p-8 space-y-5 shadow-xl animate-apple-fade-in border border-[#bf5af2]/20">
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#bf5af2] to-[#2997ff] flex items-center justify-center text-white shadow-md shadow-[#bf5af2]/25">
+        <i data-lucide="sparkles" class="w-5 h-5"></i>
+      </div>
+      <div>
+        <h3 class="text-base font-semibold text-white tracking-tight flex items-center gap-2">
+          Ask StockSense Copilot
+          <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-medium bg-[#bf5af2]/15 text-[#bf5af2]">Natural Language AI</span>
+        </h3>
+        <p class="text-xs text-[#86868b]">Query your entire supply chain, inventory runway, and supplier reliability in plain English.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Copilot Query Bar -->
+  <div class="space-y-3">
+    <form onsubmit="handleCopilotSubmit(event)" class="relative flex items-center">
+      <input type="text" id="copilot-input" placeholder="e.g. Which products will run out first? How much cash do we need for purchase orders?" class="w-full bg-[#161617] border border-white/[0.12] focus:border-[#bf5af2] rounded-full py-3.5 pl-5 pr-28 text-xs text-white placeholder-[#86868b] outline-none transition-all shadow-inner">
+      <button type="submit" class="absolute right-1.5 px-4.5 py-2 rounded-full bg-[#bf5af2] hover:bg-[#c970f5] text-white font-medium text-xs transition cursor-pointer apple-btn shadow-md shadow-[#bf5af2]/25 flex items-center gap-1.5">
+        <span>Ask AI</span>
+        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+      </button>
+    </form>
+
+    <!-- Quick Prompt Chips -->
+    <div class="flex items-center flex-wrap gap-2 text-xs">
+      <span class="text-[11px] text-[#86868b]">Suggested:</span>
+      <button onclick="runCopilotPrompt('Which products will run out of stock first?')" class="px-3 py-1 rounded-full bg-[#1c1c1e] hover:bg-[#2c2c2e] text-[#f5f5f7] border border-white/[0.08] transition cursor-pointer text-[11px] apple-btn">
+        🚨 Stockout Hazards
+      </button>
+      <button onclick="runCopilotPrompt('How much money and capital is needed for purchase orders?')" class="px-3 py-1 rounded-full bg-[#1c1c1e] hover:bg-[#2c2c2e] text-[#f5f5f7] border border-white/[0.08] transition cursor-pointer text-[11px] apple-btn">
+        💰 Cash &amp; Spend Requirements
+      </button>
+      <button onclick="runCopilotPrompt('Which supplier is the slowest or has the highest delay risk?')" class="px-3 py-1 rounded-full bg-[#1c1c1e] hover:bg-[#2c2c2e] text-[#f5f5f7] border border-white/[0.08] transition cursor-pointer text-[11px] apple-btn">
+        🏭 Supplier Reliability
+      </button>
+      <button onclick="runCopilotPrompt('What actions did the autonomous auto-pilot execute recently?')" class="px-3 py-1 rounded-full bg-[#1c1c1e] hover:bg-[#2c2c2e] text-[#f5f5f7] border border-white/[0.08] transition cursor-pointer text-[11px] apple-btn">
+        ⚡ Auto-Pilot History
+      </button>
+    </div>
+  </div>
+
+  <!-- Copilot Response Area -->
+  <div id="copilot-response-box" class="hidden p-5 rounded-2xl bg-[#121214] border border-[#bf5af2]/30 space-y-3.5 animate-apple-scale-in">
+    <div class="flex items-center justify-between text-xs pb-2 border-b border-white/[0.06]">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-[#bf5af2] animate-pulse"></span>
+        <span class="font-semibold text-white" id="copilot-query-echo">Query Answer</span>
+      </div>
+      <span class="text-[#86868b] font-mono text-[10px]" id="copilot-intent-pill">AI Intent: RESOLVED</span>
+    </div>
+
+    <div class="text-xs text-[#f5f5f7] leading-relaxed whitespace-pre-line" id="copilot-answer-text">
+      Answer will appear here.
+    </div>
+
+    <div id="copilot-action-wrapper" class="pt-1 flex items-center justify-between gap-3">
+      <div id="copilot-metrics-chips" class="flex items-center gap-2 text-[11px] font-mono"></div>
+      <div id="copilot-action-btn-slot"></div>
+    </div>
   </div>
 </section>
 
@@ -613,6 +725,66 @@
     </div>
   </div>
 </div>
+
+
+<!-- ========================================================================= -->
+<!-- MODAL 3: UNIQUE FEATURE - AI VOLUME ARBITRAGE & SUPPLIER NEGOTIATION      -->
+<!-- ========================================================================= -->
+<div id="negotiator-modal" class="fixed inset-0 bg-black/80 backdrop-blur-xl z-50 hidden flex items-center justify-center p-4">
+  <div class="bg-[#1c1c1e] border border-white/[0.12] rounded-3xl max-w-3xl w-full shadow-2xl overflow-hidden space-y-4 p-6 sm:p-7 animate-apple-scale-in">
+    <div class="flex items-center justify-between pb-4 border-b border-white/[0.08]">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-2xl bg-[#bf5af2]/10 text-[#bf5af2] border border-[#bf5af2]/20 flex items-center justify-center shrink-0">
+          <i data-lucide="handshake" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h3 class="text-base font-semibold text-white tracking-tight flex items-center gap-2">
+            <span>AI Volume Discount Arbitrage &amp; Supplier Negotiation</span>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-medium bg-[#30d158]/20 text-[#30d158]" id="neg-sku-badge">SKU</span>
+          </h3>
+          <p class="text-xs text-[#86868b] font-normal" id="neg-supplier-name">Evaluating vendor tier price breaks against capital holding costs.</p>
+        </div>
+      </div>
+      <button onclick="closeNegotiatorModal()" class="w-8 h-8 rounded-full bg-[#2c2c2e] text-[#86868b] hover:text-white flex items-center justify-center transition cursor-pointer apple-btn">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+    </div>
+
+    <!-- Tiers Arbitrage Table -->
+    <div class="space-y-3">
+      <div class="text-xs text-white font-medium flex items-center justify-between">
+        <span>Volume Pricing Break Comparison:</span>
+        <span class="text-[#30d158] font-mono" id="neg-strategy-tag">Arbitrage Recommended</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" id="neg-tiers-grid">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+
+    <!-- Generated Negotiation Email Memo -->
+    <div class="space-y-2 pt-1">
+      <div class="flex items-center justify-between text-xs">
+        <span class="text-[#86868b] font-medium">Autonomous Executive Negotiation Correspondence:</span>
+        <button onclick="copyNegotiationEmail()" class="px-3.5 py-1.5 rounded-full bg-[#2c2c2e] hover:bg-[#38383a] text-[#2997ff] border border-white/[0.08] font-mono text-[11px] transition flex items-center gap-1.5 cursor-pointer apple-btn">
+          <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy Email
+        </button>
+      </div>
+      <div class="bg-[#121214] border border-white/[0.06] rounded-2xl p-4 font-mono text-xs text-[#f5f5f7] overflow-x-auto max-h-56 leading-relaxed whitespace-pre-line shadow-inner" id="neg-email-body">
+        Generating negotiation memo...
+      </div>
+    </div>
+
+    <div class="pt-2 flex justify-end gap-2.5">
+      <button onclick="closeNegotiatorModal()" class="px-5 py-2 rounded-full bg-[#2c2c2e] hover:bg-[#38383a] text-[#f5f5f7] text-xs font-medium transition cursor-pointer apple-btn">
+        Close
+      </button>
+      <button onclick="copyNegotiationEmail(); closeNegotiatorModal();" class="px-5 py-2 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white text-xs font-medium transition cursor-pointer apple-btn shadow-md shadow-[#0071e3]/20">
+        Copy Memo &amp; Prepare Order
+      </button>
+    </div>
+  </div>
+</div>
 {% endblock %}
 
 
@@ -622,6 +794,7 @@
   let currentExecFilter = 'ALL';
   let currentExpertSubTab = 'abc';
   let currentEDIPayloadText = '';
+  let currentNegotiationEmailText = '';
 
   function refreshLucide() {
     if (window.lucide) {
@@ -689,6 +862,158 @@
 
     loadExpertSubTab(subId);
     refreshLucide();
+  }
+
+  // =========================================================================
+  // NATURAL LANGUAGE STOCKSENSE COPILOT CONTROLLER
+  // =========================================================================
+  function runCopilotPrompt(text) {
+    document.getElementById('copilot-input').value = text;
+    askCopilot(text);
+  }
+
+  function handleCopilotSubmit(e) {
+    e.preventDefault();
+    const text = document.getElementById('copilot-input').value.trim();
+    if (text) askCopilot(text);
+  }
+
+  async function askCopilot(promptText) {
+    const box = document.getElementById('copilot-response-box');
+    const echo = document.getElementById('copilot-query-echo');
+    const answerEl = document.getElementById('copilot-answer-text');
+    const chipsEl = document.getElementById('copilot-metrics-chips');
+    const btnSlot = document.getElementById('copilot-action-btn-slot');
+
+    box.classList.remove('hidden');
+    echo.innerText = `"${promptText}"`;
+    answerEl.innerHTML = '<span class="text-[#bf5af2] font-mono animate-pulse">StockSense Copilot querying catalog &amp; telemetry...</span>';
+    chipsEl.innerHTML = '';
+    btnSlot.innerHTML = '';
+
+    try {
+      const res = await fetch('/api/v1/ai/copilot/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: promptText })
+      });
+      const data = await res.json();
+
+      document.getElementById('copilot-intent-pill').innerText = `Intent: ${data.intent}`;
+      answerEl.innerHTML = data.answer.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white font-semibold">$1</strong>');
+
+      if (data.metrics) {
+        if (data.metrics.at_risk_count !== undefined) {
+          chipsEl.innerHTML += `<span class="px-2.5 py-1 rounded-full bg-[#ff453a]/15 text-[#ff453a] border border-[#ff453a]/25">At Risk: ${data.metrics.at_risk_count} SKUs</span>`;
+        }
+        if (data.metrics.revenue_at_risk_usd !== undefined) {
+          chipsEl.innerHTML += `<span class="px-2.5 py-1 rounded-full bg-[#ff9f0a]/15 text-[#ff9f0a] border border-[#ff9f0a]/25">Lost Rev: $${Number(data.metrics.revenue_at_risk_usd).toLocaleString()}</span>`;
+        }
+      }
+
+      if (data.suggested_action) {
+        const act = data.suggested_action;
+        if (act.action_type === 'TRIGGER_REPLENISHMENT') {
+          btnSlot.innerHTML = `
+            <button onclick="triggerAIRepletion('${act.sku}')" class="px-4 py-1.5 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white text-xs font-medium transition cursor-pointer apple-btn shadow-md shadow-[#0071e3]/20">
+              ${act.label}
+            </button>
+          `;
+        } else if (act.action_type === 'RUN_CYCLE') {
+          btnSlot.innerHTML = `
+            <button onclick="triggerAutonomousCycle()" class="px-4 py-1.5 rounded-full bg-[#30d158] hover:bg-[#28b84d] text-black text-xs font-semibold transition cursor-pointer apple-btn shadow-md shadow-[#30d158]/20">
+              ${act.label}
+            </button>
+          `;
+        } else if (act.action_type === 'SWITCH_TAB') {
+          btnSlot.innerHTML = `
+            <button onclick="setUIMode('expert'); switchExpertSubTab('${act.tab}')" class="px-4 py-1.5 rounded-full bg-[#bf5af2] hover:bg-[#c970f5] text-white text-xs font-medium transition cursor-pointer apple-btn shadow-md shadow-[#bf5af2]/20">
+              ${act.label}
+            </button>
+          `;
+        }
+      }
+    } catch (e) {
+      answerEl.innerText = "Error consulting StockSense Copilot: " + e.message;
+    }
+  }
+
+  // =========================================================================
+  // FINANCIAL EXPOSURE & AD SPEND SHIELD CONTROLLER
+  // =========================================================================
+  async function loadRevenueRiskShield() {
+    try {
+      const res = await fetch('/api/v1/ai/revenue-at-risk/');
+      const data = await res.json();
+      const s = data.summary;
+
+      document.getElementById('shield-vuln-count').innerText = `${s.vulnerable_skus_count} At-Risk SKUs`;
+      document.getElementById('shield-lost-rev').innerText = '$' + Number(s.total_revenue_at_risk_usd).toLocaleString(undefined, {minimumFractionDigits: 2});
+      document.getElementById('shield-lost-margin').innerText = '$' + Number(s.total_margin_at_risk_usd).toLocaleString(undefined, {minimumFractionDigits: 2});
+      document.getElementById('shield-wasted-ads').innerText = '$' + Number(s.total_wasted_ad_spend_usd).toLocaleString(undefined, {minimumFractionDigits: 2});
+      document.getElementById('shield-ltv-loss').innerText = '$' + Number(s.total_customer_ltv_loss_usd).toLocaleString(undefined, {minimumFractionDigits: 2});
+    } catch (e) {
+      console.error('Error loading revenue risk shield:', e);
+    }
+  }
+
+  // =========================================================================
+  // AI VOLUME DISCOUNT ARBITRAGE & SUPPLIER NEGOTIATION
+  // =========================================================================
+  async function openNegotiatorModal(sku) {
+    document.getElementById('neg-sku-badge').innerText = sku;
+    document.getElementById('neg-email-body').innerText = 'StockSense AI calculating volume break arbitrage & drafting negotiation letter...';
+    document.getElementById('negotiator-modal').classList.remove('hidden');
+
+    try {
+      const res = await fetch('/api/v1/ai/negotiate/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ product_sku: sku })
+      });
+      const data = await res.json();
+
+      document.getElementById('neg-supplier-name').innerText = `Supplier: ${data.supplier_name} • Email: ${data.supplier_email}`;
+      document.getElementById('neg-strategy-tag').innerText = data.recommended_strategy;
+      currentNegotiationEmailText = data.negotiation_email_body;
+      document.getElementById('neg-email-body').innerText = currentNegotiationEmailText;
+
+      const tiersGrid = document.getElementById('neg-tiers-grid');
+      tiersGrid.innerHTML = '';
+      data.tiers.forEach(t => {
+        const div = document.createElement('div');
+        div.className = `p-4 rounded-2xl border ${t.is_recommended ? 'bg-[#30d158]/[0.08] border-[#30d158]/50 glow-card-green' : 'bg-[#161617] border-white/[0.06]'} space-y-2 text-xs flex flex-col justify-between`;
+        div.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="font-medium text-white">${t.tier_name}</span>
+              ${t.discount_percent > 0 ? `<span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-medium bg-[#30d158]/20 text-[#30d158]">-${t.discount_percent}% OFF</span>` : '<span class="text-[#86868b] text-[10px]">Base Rate</span>'}
+            </div>
+            <div class="mt-2.5 space-y-1 text-[#86868b]">
+              <div class="flex justify-between"><span>Batch Units:</span> <span class="font-mono text-white font-medium">${t.quantity.toLocaleString()}</span></div>
+              <div class="flex justify-between"><span>Unit Rate:</span> <span class="font-mono text-white font-medium">$${t.unit_price_usd.toFixed(2)}</span></div>
+              <div class="flex justify-between"><span>Total Capital:</span> <span class="font-mono text-white font-medium">$${t.total_capital_usd.toLocaleString()}</span></div>
+            </div>
+          </div>
+          <div class="pt-2 border-t border-white/[0.06] flex items-center justify-between font-mono text-[11px]">
+            <span class="text-[#86868b]">Net Gain:</span>
+            <span class="${t.net_arbitrage_gain_usd > 0 ? 'text-[#30d158] font-bold' : 'text-[#86868b]'}">+$${t.net_arbitrage_gain_usd.toLocaleString()}</span>
+          </div>
+        `;
+        tiersGrid.appendChild(div);
+      });
+    } catch (e) {
+      document.getElementById('neg-email-body').innerText = 'Error running negotiation analysis: ' + e.message;
+    }
+  }
+
+  function closeNegotiatorModal() {
+    document.getElementById('negotiator-modal').classList.add('hidden');
+  }
+
+  function copyNegotiationEmail() {
+    navigator.clipboard.writeText(currentNegotiationEmailText);
+    showToast('Copied to Clipboard', 'AI Supplier Negotiation email ready to send');
   }
 
   // =========================================================================
@@ -784,6 +1109,7 @@
 
       await refreshDashboard();
       await loadAutoPilotStatus();
+      await loadRevenueRiskShield();
       if (currentExpertSubTab === 'orders') loadOrdersSubTab();
       if (currentExpertSubTab === 'transfers') loadTransfersSubTab();
     } catch (e) {
@@ -880,6 +1206,7 @@
 
       await loadInventoryData();
       await loadAutoPilotStatus();
+      await loadRevenueRiskShield();
       refreshLucide();
     } catch (e) {
       console.error('Error refreshing dashboard:', e);
@@ -1010,9 +1337,12 @@
           </div>
         </div>
 
-        <div class="pt-1">
+        <div class="pt-1 space-y-2">
           <button onclick="triggerAIRepletion('${sku}')" class="w-full py-2.5 rounded-full ${isUrgent ? 'bg-[#ff453a] hover:bg-[#ff5b52] text-white shadow-lg shadow-[#ff453a]/25' : 'bg-[#0071e3] hover:bg-[#0077ed] text-white shadow-lg shadow-[#0071e3]/25'} font-medium text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer apple-btn">
             <i data-lucide="bot" class="w-3.5 h-3.5"></i> ${isUrgent ? 'Restock with AI Now' : 'Check AI Recommendations'}
+          </button>
+          <button onclick="openNegotiatorModal('${sku}')" class="w-full py-2 rounded-full bg-[#1c1c1e] hover:bg-[#2c2c2e] text-[#bf5af2] border border-[#bf5af2]/30 font-medium text-[11px] transition-all flex items-center justify-center gap-1.5 cursor-pointer apple-btn">
+            <i data-lucide="handshake" class="w-3.5 h-3.5"></i> Negotiate Volume Discount with AI
           </button>
         </div>
       `;

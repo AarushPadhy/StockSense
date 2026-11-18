@@ -554,6 +554,54 @@ export interface WhatIfSimulationResult {
 - **`GET /api/v1/automation/audit-logs/?limit=20`**:
   - Immutable audit trail of zero-touch automated actions (`PO_TRANSMITTED`, `TRANSFER_DISPATCHED`, `GUARDRAIL_HELD`).
 
+---
+
+### 11. Next-Gen Unique AI Features
+- **`POST /api/v1/ai/copilot/`**:
+  - Plain English Natural Language AI Copilot query.
+  - **Body**: `{ "query": "Which products will run out of stock first?" }`
+  - **Response**:
+    ```json
+    {
+      "answer": "You have 2 products requiring attention...",
+      "intent": "STOCKOUT_HAZARDS",
+      "metrics": { "at_risk_count": 2, "most_urgent_sku": "SKU-ELEC-1001" },
+      "suggested_action": { "label": "Restock with AI", "action_type": "TRIGGER_REPLENISHMENT", "sku": "SKU-ELEC-1001" }
+    }
+    ```
+- **`GET /api/v1/ai/revenue-at-risk/`**:
+  - Evaluates financial exposure: top-line revenue at risk, lost gross margins, and wasted ad spend.
+  - **Response**:
+    ```json
+    {
+      "summary": {
+        "total_revenue_at_risk_usd": 18450.0,
+        "total_margin_at_risk_usd": 8900.0,
+        "total_wasted_ad_spend_usd": 2214.0,
+        "total_customer_ltv_loss_usd": 6457.5,
+        "vulnerable_skus_count": 2,
+        "financial_health_score": 76
+      },
+      "vulnerable_products": [...]
+    }
+    ```
+- **`POST /api/v1/ai/negotiate/`**:
+  - Evaluates tiered volume discount arbitrage and generates supplier negotiation letters.
+  - **Body**: `{ "product_sku": "SKU-ELEC-1001", "planned_order_qty": 100 }`
+  - **Response**:
+    ```json
+    {
+      "sku": "SKU-ELEC-1001",
+      "product_name": "Aura ANC Wireless Headphones",
+      "tiers": [
+        { "tier_name": "Standard Batch", "quantity": 100, "unit_price_usd": 24.50, "discount_percent": 0.0 },
+        { "tier_name": "Volume Arbitrage", "quantity": 150, "unit_price_usd": 22.54, "discount_percent": 8.0, "net_arbitrage_gain_usd": 294.0 }
+      ],
+      "negotiation_email_subject": "StockSense Order Schedule & Volume Pricing Review",
+      "negotiation_email_body": "Dear Account Team..."
+    }
+    ```
+
 
 ---
 
