@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}SupplyChain AI — Executive Inventory Overview{% endblock %}</title>
+  <title>{% block title %}StockSense — Autonomous Inventory Intelligence{% endblock %}</title>
 
-  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <!-- Apple SF Pro Font & Fallbacks (Inter / JetBrains Mono) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -18,15 +18,44 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'monospace'],
+            sans: [
+              '-apple-system',
+              'BlinkMacSystemFont',
+              '"SF Pro Display"',
+              '"SF Pro Text"',
+              '"SF Pro"',
+              '"Inter"',
+              'system-ui',
+              'sans-serif'
+            ],
+            mono: [
+              'ui-monospace',
+              '"SF Mono"',
+              '"JetBrains Mono"',
+              'Menlo',
+              'Monaco',
+              'Consolas',
+              'monospace'
+            ],
           },
           colors: {
-            brand: {
-              bg: '#09090b',          /* Clean obsidian dark */
-              card: '#121215',        /* Elevated clean surface */
+            apple: {
+              canvas: '#000000',
+              card: '#161617',
+              cardElevated: '#1c1c1e',
+              cardSubtle: '#121213',
               border: 'rgba(255, 255, 255, 0.08)',
               borderSubtle: 'rgba(255, 255, 255, 0.04)',
+              borderHighlight: 'rgba(255, 255, 255, 0.16)',
+              blue: '#0071e3',
+              blueLight: '#2997ff',
+              green: '#30d158',
+              amber: '#ff9f0a',
+              red: '#ff453a',
+              purple: '#bf5af2',
+              gray: '#86868b',
+              grayLight: '#a1a1a6',
+              textPrimary: '#f5f5f7',
             }
           }
         }
@@ -41,75 +70,130 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    /* Clean subtle glows without visual noise */
-    .glow-card-green {
-      box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    }
-    .glow-card-red {
-      box-shadow: 0 0 25px -5px rgba(244, 63, 94, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    }
-    .glow-card-amber {
-      box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    }
-    .glow-card-cyan {
-      box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    }
-    .glow-card-indigo {
-      box-shadow: 0 0 25px -5px rgba(99, 102, 241, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    /* Apple.com Refined Typography and Aesthetics */
+    body {
+      background-color: #000000;
+      color: #f5f5f7;
+      letter-spacing: -0.011em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Custom smooth scrollbars */
-    ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: rgba(9, 9, 11, 0.5); }
-    ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.12); border-radius: 9999px; }
-    ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.22); }
+    /* Apple glass card subtle inner reflection */
+    .apple-glass {
+      background-color: rgba(22, 22, 23, 0.78);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .apple-glass-card {
+      background: linear-gradient(180deg, rgba(28, 28, 30, 0.72) 0%, rgba(18, 18, 20, 0.72) 100%);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .apple-glass-card:hover {
+      border-color: rgba(255, 255, 255, 0.16);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    /* Apple Intelligence Glow Accent */
+    .apple-intelligence-glow {
+      position: relative;
+    }
+    .apple-intelligence-glow::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(41, 151, 255, 0.4), rgba(191, 90, 242, 0.3), rgba(48, 209, 88, 0.3));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    /* Subtle Apple indicator glows */
+    .glow-card-green {
+      box-shadow: 0 10px 25px -5px rgba(48, 209, 88, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+    .glow-card-red {
+      box-shadow: 0 10px 25px -5px rgba(255, 69, 58, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+    .glow-card-amber {
+      box-shadow: 0 10px 25px -5px rgba(255, 159, 10, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+    .glow-card-cyan {
+      box-shadow: 0 10px 25px -5px rgba(41, 151, 255, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+    .glow-card-indigo {
+      box-shadow: 0 10px 25px -5px rgba(191, 90, 242, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    /* Apple-style minimalist scrollbars */
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.3); }
   </style>
 
   {% block extra_head %}{% endblock %}
 </head>
-<body class="bg-[#09090b] text-zinc-100 min-h-screen flex flex-col font-sans antialiased selection:bg-cyan-500 selection:text-black">
+<body class="bg-black text-[#f5f5f7] min-h-screen flex flex-col font-sans antialiased selection:bg-[#2997ff]/30 selection:text-white">
 
   <!-- ===================================================================== -->
-  <!-- TOP EXECUTIVE NAVBAR (Clean, distraction-free, Apple-like)            -->
+  <!-- TOP APPLE-STYLE NAVBAR (Glassmorphism, Minimalist, Reassuring)        -->
   <!-- ===================================================================== -->
-  <header class="bg-[#0e0e12]/90 backdrop-blur-xl border-b border-[rgba(255,255,255,0.08)] sticky top-0 z-50 px-4 sm:px-8 py-3.5 shadow-lg">
+  <header class="bg-black/75 backdrop-blur-2xl border-b border-white/[0.08] sticky top-0 z-50 px-4 sm:px-8 py-3.5 transition-all">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
       
-      <!-- Logo + Simple Product Identity -->
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-cyan-500 flex items-center justify-center shadow-lg shadow-emerald-500/20 text-zinc-950 font-black text-lg">
-          <i data-lucide="shield-check" class="w-6 h-6 text-zinc-950"></i>
+      <!-- Logo + Product Identity (StockSense) -->
+      <div class="flex items-center gap-3.5">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#2997ff] via-[#bf5af2] to-[#30d158] p-[1.5px] shadow-lg shadow-[#2997ff]/20">
+          <div class="w-full h-full bg-[#121214] rounded-[10px] flex items-center justify-center">
+            <i data-lucide="activity" class="w-5 h-5 text-white"></i>
+          </div>
         </div>
         <div>
           <div class="flex items-center gap-2">
-            <h1 class="text-base font-extrabold tracking-tight text-white">SupplyChain AI</h1>
-            <span class="px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center gap-1.5 font-mono">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <h1 class="text-base font-semibold tracking-tight text-white flex items-center gap-1.5">
+              StockSense
+            </h1>
+            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-[#30d158]/10 text-[#30d158] border border-[#30d158]/20 flex items-center gap-1.5 font-mono">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#30d158] animate-pulse"></span>
               Auto-Pilot Active
             </span>
           </div>
-          <p class="text-xs text-zinc-400">Autonomous Inventory Protection for Business Owners</p>
+          <p class="text-xs text-[#86868b]">Autonomous Inventory Intelligence for Business Owners</p>
         </div>
       </div>
 
-      <!-- Mode Switcher & Top Action Buttons -->
+      <!-- Mode Switcher & Top Action Buttons (Apple Segmented Controls & Pills) -->
       <div class="flex items-center flex-wrap gap-2.5">
-        <!-- Mode Switcher -->
-        <div class="bg-[#141418] p-1 rounded-xl border border-[rgba(255,255,255,0.08)] flex items-center text-xs font-semibold shadow-inner">
-          <button onclick="setUIMode('executive')" id="btn-mode-exec" class="px-3.5 py-1.5 rounded-lg bg-cyan-600 text-white shadow-md shadow-cyan-600/30 transition flex items-center gap-1.5 cursor-pointer">
-            <i data-lucide="user-check" class="w-3.5 h-3.5"></i> Executive (Simple)
+        
+        <!-- Apple Segmented Control (Executive vs Analyst) -->
+        <div class="bg-[#1c1c1e] p-1 rounded-full border border-white/[0.08] flex items-center text-xs font-medium shadow-inner">
+          <button onclick="setUIMode('executive')" id="btn-mode-exec" class="px-3.5 py-1.5 rounded-full bg-[#2c2c2e] text-white shadow-sm transition-all duration-200 flex items-center gap-1.5 cursor-pointer">
+            <i data-lucide="user-check" class="w-3.5 h-3.5 text-[#2997ff]"></i> Executive
           </button>
-          <button onclick="setUIMode('expert')" id="btn-mode-expert" class="px-3.5 py-1.5 rounded-lg text-zinc-400 hover:text-zinc-200 transition flex items-center gap-1.5 cursor-pointer">
-            <i data-lucide="bar-chart-3" class="w-3.5 h-3.5"></i> Deep Dive (Analyst)
+          <button onclick="setUIMode('expert')" id="btn-mode-expert" class="px-3.5 py-1.5 rounded-full text-[#86868b] hover:text-[#f5f5f7] transition-all duration-200 flex items-center gap-1.5 cursor-pointer">
+            <i data-lucide="bar-chart-3" class="w-3.5 h-3.5"></i> Deep Dive
           </button>
         </div>
 
-        <button onclick="refreshDashboard()" class="px-3 py-1.5 rounded-xl bg-[#141418] hover:bg-[#1a1a20] text-zinc-300 text-xs font-semibold transition border border-[rgba(255,255,255,0.08)] flex items-center gap-1.5 cursor-pointer active:scale-95">
-          <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-cyan-400"></i> Refresh
+        <!-- Apple Style Refresh Button -->
+        <button onclick="refreshDashboard()" class="px-3.5 py-1.5 rounded-full bg-[#1c1c1e] hover:bg-[#2c2c2e] text-[#f5f5f7] text-xs font-medium transition border border-white/[0.08] flex items-center gap-1.5 cursor-pointer active:scale-95">
+          <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-[#2997ff]"></i> Refresh
         </button>
 
-        <button onclick="triggerAutonomousCycle()" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-zinc-950 font-extrabold text-xs transition flex items-center gap-1.5 shadow-lg shadow-emerald-500/25 cursor-pointer active:scale-95">
-          <i data-lucide="zap" class="w-3.5 h-3.5"></i> Run Auto-Pilot Cycle
+        <!-- Apple Style Primary Action Button (Blue/Intelligence) -->
+        <button onclick="triggerAutonomousCycle()" class="px-4 py-1.5 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white font-medium text-xs transition-all duration-200 flex items-center gap-1.5 shadow-md shadow-[#0071e3]/30 cursor-pointer active:scale-95">
+          <i data-lucide="zap" class="w-3.5 h-3.5 fill-current"></i> Run Auto-Pilot Cycle
         </button>
       </div>
 
@@ -117,30 +201,36 @@
   </header>
 
   <!-- ===================================================================== -->
-  <!-- TOAST NOTIFICATION                                                    -->
+  <!-- TOAST NOTIFICATION (Apple Island Style)                                -->
   <!-- ===================================================================== -->
-  <div id="toast-notification" class="fixed top-20 right-6 z-50 hidden bg-[#141418]/95 border border-cyan-500/40 text-white px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-3 backdrop-blur-xl transition-all duration-300 max-w-md">
-    <div class="w-8 h-8 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center shrink-0">
+  <div id="toast-notification" class="fixed top-20 right-6 z-50 hidden bg-[#1c1c1e]/90 border border-white/[0.12] text-white px-4.5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 backdrop-blur-2xl transition-all duration-300 max-w-md">
+    <div class="w-8 h-8 rounded-full bg-[#2997ff]/20 text-[#2997ff] flex items-center justify-center shrink-0">
       <i class="fa-solid fa-circle-check text-base" id="toast-icon"></i>
     </div>
     <div class="min-w-0">
-      <h4 class="text-xs font-bold text-white tracking-wide" id="toast-title">Success</h4>
-      <p class="text-[11px] text-zinc-300 truncate" id="toast-msg">Operation completed</p>
+      <h4 class="text-xs font-semibold text-white tracking-tight" id="toast-title">Success</h4>
+      <p class="text-[11px] text-[#86868b] truncate" id="toast-msg">Operation completed</p>
     </div>
   </div>
 
   <!-- ===================================================================== -->
   <!-- MAIN WORKSPACE CONTENT CONTAINER                                      -->
   <!-- ===================================================================== -->
-  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-7">
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-9 space-y-8">
     {% block content %}{% endblock %}
   </main>
 
   <!-- ===================================================================== -->
-  <!-- CLEAN EXECUTIVE FOOTER                                                -->
+  <!-- CLEAN APPLE FOOTER                                                    -->
   <!-- ===================================================================== -->
-  <footer class="border-t border-[rgba(255,255,255,0.06)] px-8 py-6 text-center text-xs text-zinc-500 font-mono">
-    SupplyChain AI &bull; Built for Autonomous Business Protection &bull; Zero Stockouts
+  <footer class="border-t border-white/[0.06] px-8 py-7 text-center text-xs text-[#86868b] font-sans">
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-2 text-center">
+      <span class="font-semibold text-[#f5f5f7]">StockSense</span>
+      <span class="hidden sm:inline text-zinc-700">•</span>
+      <span>Autonomous Inventory Intelligence</span>
+      <span class="hidden sm:inline text-zinc-700">•</span>
+      <span>Zero stockouts, zero manual friction</span>
+    </div>
   </footer>
 
   <!-- Initialize Lucide Icons -->
