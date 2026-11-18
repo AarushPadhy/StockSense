@@ -141,7 +141,7 @@ class StockTransferRecommendationSerializer(serializers.ModelSerializer):
 
 
 class SimulationRequestSerializer(serializers.Serializer):
-    product_sku = serializers.CharField(required=True)
+    product_sku = serializers.CharField(required=False, default=None, allow_null=True)
     demand_surge_percent = serializers.FloatField(default=0.0, min_value=-90.0, max_value=500.0)
     lead_time_delay_days = serializers.IntegerField(default=0, min_value=0, max_value=180)
     supplier_risk_spike = serializers.FloatField(default=0.0, min_value=-1.0, max_value=1.0)

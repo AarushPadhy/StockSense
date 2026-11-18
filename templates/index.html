@@ -6,58 +6,58 @@
 <div class="hidden">{% csrf_token %}</div>
 
 <!-- ========================================================================= -->
-<!-- 1. EXECUTIVE HERO BRIEFING (Apple Pro Style: Reassuring, Clean, Decisive) -->
+<!-- 1. EXECUTIVE HERO BRIEFING (Apple Pro Style: Uniform Spacing & Animations)-->
 <!-- ========================================================================= -->
-<section class="apple-glass rounded-3xl p-6 sm:p-9 shadow-2xl relative overflow-hidden space-y-7 apple-intelligence-glow">
+<section class="apple-glass rounded-3xl p-6 sm:p-8 lg:p-9 shadow-2xl relative overflow-hidden space-y-7 apple-intelligence-glow animate-apple-fade-in">
   <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
     
     <div class="space-y-3.5 max-w-3xl">
       <div class="flex items-center gap-2.5">
-        <span class="w-2 h-2 rounded-full bg-[#30d158] animate-pulse"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#30d158] animate-pulse"></span>
         <span class="text-xs font-semibold uppercase tracking-wider text-[#30d158] font-mono">Live Catalog Monitoring</span>
         <span class="text-xs text-[#86868b]">• StockSense Real-Time Intelligence</span>
       </div>
 
-      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white tracking-tight" id="exec-headline">
-        Catalog Status: <span class="text-[#ff453a]" id="exec-threat-text">Evaluating inventory health...</span>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white tracking-tight leading-tight" id="exec-headline">
+        Catalog Status: <span class="text-[#ff453a] transition-all duration-300" id="exec-threat-text">Evaluating inventory health...</span>
       </h2>
 
       <p class="text-sm text-[#a1a1a6] leading-relaxed max-w-2xl font-normal" id="exec-subheadline">
-        Autonomous agents analyze customer burn rates, lead times, and global supply disruptions to eliminate stockouts before revenue is lost.
+        Autonomous agents continuously analyze daily burn rates, supplier lead times, and global corridor risks to prevent stockouts before lost revenue occurs.
       </p>
 
       <div class="flex items-center flex-wrap gap-3 pt-2">
-        <button onclick="triggerAutonomousCycle()" class="px-5 py-2.5 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white font-medium text-xs shadow-lg shadow-[#0071e3]/25 transition-all duration-200 flex items-center gap-2 cursor-pointer active:scale-95">
+        <button onclick="triggerAutonomousCycle()" class="px-5 py-2.5 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white font-medium text-xs shadow-lg shadow-[#0071e3]/25 transition-all duration-200 flex items-center gap-2 cursor-pointer apple-btn">
           <i data-lucide="zap" class="w-4 h-4 fill-current"></i> Run Autonomous Sweep
         </button>
-        <button onclick="document.getElementById('autopilot-section').scrollIntoView({behavior:'smooth'})" class="px-4 py-2.5 rounded-full bg-[#1c1c1e] hover:bg-[#2c2c2e] text-[#f5f5f7] text-xs font-medium border border-white/[0.08] transition-all duration-200 flex items-center gap-2 cursor-pointer active:scale-95">
+        <button onclick="document.getElementById('autopilot-section').scrollIntoView({behavior:'smooth'})" class="px-4.5 py-2.5 rounded-full bg-[#1c1c1e] hover:bg-[#2c2c2e] text-[#f5f5f7] text-xs font-medium border border-white/[0.08] transition-all duration-200 flex items-center gap-2 cursor-pointer apple-btn">
           <i data-lucide="sliders" class="w-4 h-4 text-[#2997ff]"></i> Auto-Pilot Controls
         </button>
       </div>
     </div>
 
-    <!-- Executive Health Scorecard (Apple Ring / Pill Metric) -->
-    <div class="bg-[#1c1c1e]/90 border border-white/[0.08] rounded-2xl p-5 sm:p-6 flex flex-col justify-between space-y-3 min-w-[280px] shadow-lg backdrop-blur-xl">
+    <!-- Executive Health Scorecard (Apple Ring Metric) -->
+    <div class="bg-[#1c1c1e]/90 border border-white/[0.08] rounded-2xl p-6 flex flex-col justify-between space-y-3 min-w-[280px] shadow-lg backdrop-blur-xl transition-all duration-300 hover:border-white/[0.16]">
       <div class="flex items-center justify-between">
         <span class="text-xs font-medium text-[#86868b] uppercase tracking-wider font-sans">Business Protection</span>
-        <span id="exec-score-label" class="text-xs font-medium text-[#30d158] px-2.5 py-0.5 rounded-full bg-[#30d158]/10 border border-[#30d158]/20 font-mono">Protected</span>
+        <span id="exec-score-label" class="text-xs font-medium text-[#30d158] px-2.5 py-0.5 rounded-full bg-[#30d158]/10 border border-[#30d158]/20 font-mono transition-all duration-300">Protected</span>
       </div>
       <div class="flex items-baseline gap-2 pt-1">
-        <span id="exec-score" class="text-4xl font-semibold tracking-tight text-white font-mono">82%</span>
+        <span id="exec-score" class="text-4xl font-semibold tracking-tight text-white font-mono transition-all duration-300">82%</span>
         <span class="text-xs text-[#86868b]">Resiliency Index</span>
       </div>
       <p class="text-[11px] text-[#86868b] leading-relaxed">
-        Autonomous defense against supplier bottlenecks, port disruptions, and unexpected spikes in customer demand.
+        Autonomous defense against vendor delivery delays, logistics congestions, and sudden demand spikes.
       </p>
     </div>
 
   </div>
 
-  <!-- 4 Big, Clean Metric Cards (Apple Bento Cards) -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-1">
+  <!-- 4 Big, Clean Metric Bento Cards -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4.5 pt-1">
     
     <!-- 1. Stockout Risk -->
-    <div class="bg-[#161617]/90 border border-white/[0.08] rounded-2xl p-5 hover:border-[#ff453a]/40 transition-all duration-200 glow-card-red flex flex-col justify-between">
+    <div class="apple-glass-card rounded-2xl p-5 hover:border-[#ff453a]/40 glow-card-red flex flex-col justify-between">
       <div>
         <div class="flex items-center justify-between text-[#86868b] text-xs">
           <span class="font-medium uppercase tracking-wider text-[11px]">Stockout Alerts</span>
@@ -65,13 +65,13 @@
             <i data-lucide="alert-triangle" class="w-3.5 h-3.5 text-[#ff453a]"></i>
           </div>
         </div>
-        <span class="text-3xl font-semibold text-[#ff453a] mt-2 block tracking-tight font-mono" id="exec-kpi-danger-count">0</span>
+        <span class="text-3xl font-semibold text-[#ff453a] mt-2.5 block tracking-tight font-mono transition-all duration-300" id="exec-kpi-danger-count">0</span>
       </div>
-      <p class="text-xs text-[#86868b] mt-2">Critical items that will deplete before supplier delivery arrives</p>
+      <p class="text-xs text-[#86868b] mt-3">Critical items that will deplete before supplier delivery arrives</p>
     </div>
 
     <!-- 2. Runway -->
-    <div class="bg-[#161617]/90 border border-white/[0.08] rounded-2xl p-5 hover:border-[#2997ff]/40 transition-all duration-200 glow-card-cyan flex flex-col justify-between">
+    <div class="apple-glass-card rounded-2xl p-5 hover:border-[#2997ff]/40 glow-card-cyan flex flex-col justify-between">
       <div>
         <div class="flex items-center justify-between text-[#86868b] text-xs">
           <span class="font-medium uppercase tracking-wider text-[11px]">Inventory Runway</span>
@@ -79,13 +79,13 @@
             <i data-lucide="hourglass" class="w-3.5 h-3.5 text-[#2997ff]"></i>
           </div>
         </div>
-        <span class="text-3xl font-semibold text-white mt-2 block tracking-tight font-mono" id="exec-kpi-runway">0d</span>
+        <span class="text-3xl font-semibold text-white mt-2.5 block tracking-tight font-mono transition-all duration-300" id="exec-kpi-runway">0d</span>
       </div>
-      <p class="text-xs text-[#86868b] mt-2">Average days until current warehouse stock reaches zero</p>
+      <p class="text-xs text-[#86868b] mt-3">Average days until current warehouse inventory reaches zero</p>
     </div>
 
     <!-- 3. Orders Handled by AI -->
-    <div class="bg-[#161617]/90 border border-white/[0.08] rounded-2xl p-5 hover:border-[#ff9f0a]/40 transition-all duration-200 glow-card-amber flex flex-col justify-between">
+    <div class="apple-glass-card rounded-2xl p-5 hover:border-[#ff9f0a]/40 glow-card-amber flex flex-col justify-between">
       <div>
         <div class="flex items-center justify-between text-[#86868b] text-xs">
           <span class="font-medium uppercase tracking-wider text-[11px]">Auto Purchase Orders</span>
@@ -93,13 +93,13 @@
             <i data-lucide="receipt" class="w-3.5 h-3.5 text-[#ff9f0a]"></i>
           </div>
         </div>
-        <span class="text-3xl font-semibold text-[#ff9f0a] mt-2 block tracking-tight font-mono" id="exec-kpi-po-count">0</span>
+        <span class="text-3xl font-semibold text-[#ff9f0a] mt-2.5 block tracking-tight font-mono transition-all duration-300" id="exec-kpi-po-count">0</span>
       </div>
-      <p class="text-xs text-[#86868b] mt-2 font-mono" id="exec-kpi-po-val">$0 value pending or transmitted</p>
+      <p class="text-xs text-[#86868b] mt-3 font-mono truncate" id="exec-kpi-po-val">$0 value pending or transmitted</p>
     </div>
 
     <!-- 4. Disruption Delay Flags -->
-    <div class="bg-[#161617]/90 border border-white/[0.08] rounded-2xl p-5 hover:border-[#bf5af2]/40 transition-all duration-200 glow-card-indigo flex flex-col justify-between">
+    <div class="apple-glass-card rounded-2xl p-5 hover:border-[#bf5af2]/40 glow-card-indigo flex flex-col justify-between">
       <div>
         <div class="flex items-center justify-between text-[#86868b] text-xs">
           <span class="font-medium uppercase tracking-wider text-[11px]">External Threats</span>
@@ -107,9 +107,9 @@
             <i data-lucide="globe-2" class="w-3.5 h-3.5 text-[#bf5af2]"></i>
           </div>
         </div>
-        <span class="text-3xl font-semibold text-[#bf5af2] mt-2 block tracking-tight font-mono" id="exec-kpi-threat-count">0</span>
+        <span class="text-3xl font-semibold text-[#bf5af2] mt-2.5 block tracking-tight font-mono transition-all duration-300" id="exec-kpi-threat-count">0</span>
       </div>
-      <p class="text-xs text-[#86868b] mt-2 font-mono" id="exec-kpi-delay-days">+0d delay flagged</p>
+      <p class="text-xs text-[#86868b] mt-3 font-mono truncate" id="exec-kpi-delay-days">+0d delay flagged</p>
     </div>
 
   </div>
@@ -117,16 +117,16 @@
 
 
 <!-- ========================================================================= -->
-<!-- 2. AUTONOMOUS AI AUTO-PILOT CONTROL & ACTIVITY FEED (Apple Pro Widget)    -->
+<!-- 2. AUTONOMOUS AI AUTO-PILOT CONTROL & ACTIVITY FEED (Uniform Spacing)     -->
 <!-- ========================================================================= -->
-<section id="autopilot-section" class="apple-glass rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl">
+<section id="autopilot-section" class="apple-glass rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl animate-apple-fade-in">
   <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-5 border-b border-white/[0.08] pb-6">
     <div class="space-y-1.5">
       <div class="flex items-center gap-2.5">
         <h3 class="text-lg font-semibold text-white tracking-tight flex items-center gap-2">
           <i data-lucide="bot" class="w-5 h-5 text-[#30d158]"></i> StockSense Auto-Pilot Engine
         </h3>
-        <span id="ap-status-pill" class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#30d158]/10 text-[#30d158] border border-[#30d158]/20 font-mono">
+        <span id="ap-status-pill" class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#30d158]/10 text-[#30d158] border border-[#30d158]/20 font-mono transition-all duration-300">
           ACTIVE &amp; EXECUTING
         </span>
       </div>
@@ -147,35 +147,35 @@
         </select>
       </div>
 
-      <button onclick="toggleAutoPilotState()" id="btn-toggle-ap" class="px-4 py-2 rounded-full bg-[#1c1c1e] hover:bg-[#2c2c2e] border border-white/[0.08] text-xs font-medium text-[#f5f5f7] transition flex items-center gap-2 cursor-pointer active:scale-95">
+      <button onclick="toggleAutoPilotState()" id="btn-toggle-ap" class="px-4 py-2 rounded-full bg-[#1c1c1e] hover:bg-[#2c2c2e] border border-white/[0.08] text-xs font-medium text-[#f5f5f7] transition-all flex items-center gap-2 cursor-pointer apple-btn">
         <i class="fa-solid fa-power-off text-[#30d158] text-xs" id="icon-ap-toggle"></i>
         <span id="text-ap-toggle">Pause Auto-Pilot</span>
       </button>
 
-      <button onclick="triggerAutonomousCycle()" class="px-4 py-2 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white font-medium text-xs shadow-md shadow-[#0071e3]/30 transition flex items-center gap-2 cursor-pointer active:scale-95">
+      <button onclick="triggerAutonomousCycle()" class="px-4.5 py-2 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white font-medium text-xs shadow-md shadow-[#0071e3]/30 transition-all flex items-center gap-2 cursor-pointer apple-btn">
         <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i> Run Full Cycle Now
       </button>
     </div>
   </div>
 
   <!-- 4 Mini Auto-Pilot Stats -->
-  <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
-    <div class="bg-[#161617]/90 p-4 rounded-2xl border border-white/[0.06]">
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5 text-xs">
+    <div class="bg-[#161617]/90 p-4.5 rounded-2xl border border-white/[0.06] hover:border-white/[0.14] transition-all">
       <span class="text-[#86868b] block text-[11px] font-medium uppercase">Automated Spend</span>
       <span class="text-xl font-semibold font-mono text-white mt-1.5 block" id="ap-stat-spend">$0.00</span>
       <span class="text-[10px] text-[#30d158] mt-1 block font-mono">Within safety limits</span>
     </div>
-    <div class="bg-[#161617]/90 p-4 rounded-2xl border border-white/[0.06]">
+    <div class="bg-[#161617]/90 p-4.5 rounded-2xl border border-white/[0.06] hover:border-white/[0.14] transition-all">
       <span class="text-[#86868b] block text-[11px] font-medium uppercase">Orders Transmitted</span>
       <span class="text-xl font-semibold font-mono text-[#2997ff] mt-1.5 block" id="ap-stat-pos">0 orders</span>
       <span class="text-[10px] text-[#86868b] mt-1 block font-mono">Sent to vendors</span>
     </div>
-    <div class="bg-[#161617]/90 p-4 rounded-2xl border border-white/[0.06]">
+    <div class="bg-[#161617]/90 p-4.5 rounded-2xl border border-white/[0.06] hover:border-white/[0.14] transition-all">
       <span class="text-[#86868b] block text-[11px] font-medium uppercase">Transfers Rebalanced</span>
       <span class="text-xl font-semibold font-mono text-[#30d158] mt-1.5 block" id="ap-stat-transfers">0 transfers</span>
       <span class="text-[10px] text-[#86868b] mt-1 block font-mono">Intra-warehouse</span>
     </div>
-    <div class="bg-[#161617]/90 p-4 rounded-2xl border border-white/[0.06]">
+    <div class="bg-[#161617]/90 p-4.5 rounded-2xl border border-white/[0.06] hover:border-white/[0.14] transition-all">
       <span class="text-[#86868b] block text-[11px] font-medium uppercase">Total Actions</span>
       <span class="text-xl font-semibold font-mono text-[#bf5af2] mt-1.5 block" id="ap-stat-total">0 actions</span>
       <span class="text-[10px] text-[#86868b] mt-1 block font-mono truncate" id="ap-stat-last-run">Last run: pending</span>
@@ -188,7 +188,7 @@
       <span class="flex items-center gap-2 text-white font-medium">
         <i data-lucide="history" class="w-4 h-4 text-[#2997ff]"></i> Autonomous Activity Stream
       </span>
-      <button onclick="loadAutonomousAuditLogs()" class="text-[#2997ff] hover:text-[#54aaff] font-medium text-xs flex items-center gap-1 cursor-pointer transition">
+      <button onclick="loadAutonomousAuditLogs()" class="text-[#2997ff] hover:text-[#54aaff] font-medium text-xs flex items-center gap-1 cursor-pointer transition apple-btn">
         <i data-lucide="rotate-cw" class="w-3 h-3"></i> Refresh Activity
       </button>
     </div>
@@ -200,36 +200,36 @@
 
 
 <!-- ========================================================================= -->
-<!-- 3. PRODUCT CATALOG & ONE-CLICK RESTOCK (Apple Bento Grid)                -->
+<!-- 3. PRODUCT CATALOG & ONE-CLICK RESTOCK (Bento Grid)                       -->
 <!-- ========================================================================= -->
-<section id="executive-inventory-section" class="space-y-5">
+<section id="executive-inventory-section" class="space-y-5 animate-apple-fade-in">
   <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
     <div>
       <h3 class="text-lg font-semibold text-white tracking-tight flex items-center gap-2">
-        <i data-lucide="package-search" class="w-5 h-5 text-[#2997ff]"></i> Product Catalog &amp; Runway
+        <i data-lucide="package-search" class="w-5 h-5 text-[#2997ff]"></i> Product Catalog &amp; Stock Runway
       </h3>
       <p class="text-xs text-[#86868b]">Instant stock cover visibility across all SKUs with one-click AI replenishment.</p>
     </div>
 
     <!-- Apple Filter Segmented Control -->
     <div class="flex items-center gap-1 text-xs bg-[#1c1c1e] p-1 rounded-full border border-white/[0.08]">
-      <button onclick="filterExecList('ALL')" id="flt-all" class="px-3.5 py-1.5 rounded-full bg-[#2c2c2e] text-white font-medium transition cursor-pointer">All Products</button>
-      <button onclick="filterExecList('URGENT')" id="flt-urg" class="px-3.5 py-1.5 rounded-full text-[#86868b] hover:text-[#f5f5f7] font-medium transition cursor-pointer">Urgent Restock</button>
-      <button onclick="filterExecList('SAFE')" id="flt-safe" class="px-3.5 py-1.5 rounded-full text-[#86868b] hover:text-[#f5f5f7] font-medium transition cursor-pointer">Stock Safe</button>
+      <button onclick="filterExecList('ALL')" id="flt-all" class="px-3.5 py-1.5 rounded-full bg-[#2c2c2e] text-white font-medium transition cursor-pointer apple-btn">All Products</button>
+      <button onclick="filterExecList('URGENT')" id="flt-urg" class="px-3.5 py-1.5 rounded-full text-[#86868b] hover:text-[#f5f5f7] font-medium transition cursor-pointer apple-btn">Urgent Restock</button>
+      <button onclick="filterExecList('SAFE')" id="flt-safe" class="px-3.5 py-1.5 rounded-full text-[#86868b] hover:text-[#f5f5f7] font-medium transition cursor-pointer apple-btn">Stock Safe</button>
     </div>
   </div>
 
   <!-- Cards Grid -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="executive-product-grid">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="executive-product-grid">
     <div class="col-span-3 text-center py-12 text-[#86868b] font-mono text-xs">Loading products...</div>
   </div>
 </section>
 
 
 <!-- ========================================================================= -->
-<!-- 4. "WHAT-IF" STRESS-TEST SCENARIOS (Apple Interactive Cards)              -->
+<!-- 4. "WHAT-IF" STRESS-TEST SCENARIOS (Interactive Apple Cards)              -->
 <!-- ========================================================================= -->
-<section id="executive-scenarios-section" class="apple-glass rounded-3xl p-6 sm:p-8 space-y-5 shadow-xl">
+<section id="executive-scenarios-section" class="apple-glass rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl animate-apple-fade-in">
   <div>
     <h3 class="text-lg font-semibold text-white tracking-tight flex items-center gap-2">
       <i data-lucide="sparkles" class="w-5 h-5 text-[#ff9f0a]"></i> "What-If" Stress Test Simulation
@@ -237,41 +237,41 @@
     <p class="text-xs text-[#86868b]">Simulate unexpected supply shocks in seconds to ensure your operations stay resilient.</p>
   </div>
 
-  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-    <button onclick="runQuickScenario('demand_spike')" class="bg-[#161617]/90 hover:bg-[#1c1c1e] border border-white/[0.08] hover:border-[#2997ff]/50 rounded-2xl p-5 text-left transition-all duration-200 group cursor-pointer active:scale-98">
-      <div class="flex items-center justify-between text-xs font-medium text-[#2997ff] mb-1.5 font-mono">
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4.5">
+    <button onclick="runQuickScenario('demand_spike')" class="bg-[#161617]/90 hover:bg-[#1c1c1e] border border-white/[0.08] hover:border-[#2997ff]/50 rounded-2xl p-5 sm:p-6 text-left transition-all duration-300 group cursor-pointer apple-btn">
+      <div class="flex items-center justify-between text-xs font-medium text-[#2997ff] mb-2 font-mono">
         <span>Scenario A</span>
-        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition text-[#2997ff]"></i>
+        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-200 text-[#2997ff]"></i>
       </div>
       <h4 class="text-sm font-semibold text-white tracking-tight">"What if sales surge 40% next week?"</h4>
-      <p class="text-xs text-[#86868b] mt-2 leading-relaxed">Simulates viral demand to stress-test your dynamic safety stock buffer.</p>
+      <p class="text-xs text-[#86868b] mt-2.5 leading-relaxed">Simulates viral demand to stress-test your dynamic safety stock buffer.</p>
     </button>
 
-    <button onclick="runQuickScenario('port_delay')" class="bg-[#161617]/90 hover:bg-[#1c1c1e] border border-white/[0.08] hover:border-[#ff9f0a]/50 rounded-2xl p-5 text-left transition-all duration-200 group cursor-pointer active:scale-98">
-      <div class="flex items-center justify-between text-xs font-medium text-[#ff9f0a] mb-1.5 font-mono">
+    <button onclick="runQuickScenario('port_delay')" class="bg-[#161617]/90 hover:bg-[#1c1c1e] border border-white/[0.08] hover:border-[#ff9f0a]/50 rounded-2xl p-5 sm:p-6 text-left transition-all duration-300 group cursor-pointer apple-btn">
+      <div class="flex items-center justify-between text-xs font-medium text-[#ff9f0a] mb-2 font-mono">
         <span>Scenario B</span>
-        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition text-[#ff9f0a]"></i>
+        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-200 text-[#ff9f0a]"></i>
       </div>
       <h4 class="text-sm font-semibold text-white tracking-tight">"What if freight is delayed 14 days?"</h4>
-      <p class="text-xs text-[#86868b] mt-2 leading-relaxed">Simulates port congestion and extended custom clearance holds.</p>
+      <p class="text-xs text-[#86868b] mt-2.5 leading-relaxed">Simulates port congestion and extended custom clearance holds.</p>
     </button>
 
-    <button onclick="runQuickScenario('supplier_failure')" class="bg-[#161617]/90 hover:bg-[#1c1c1e] border border-white/[0.08] hover:border-[#ff453a]/50 rounded-2xl p-5 text-left transition-all duration-200 group cursor-pointer active:scale-98">
-      <div class="flex items-center justify-between text-xs font-medium text-[#ff453a] mb-1.5 font-mono">
+    <button onclick="runQuickScenario('supplier_failure')" class="bg-[#161617]/90 hover:bg-[#1c1c1e] border border-white/[0.08] hover:border-[#ff453a]/50 rounded-2xl p-5 sm:p-6 text-left transition-all duration-300 group cursor-pointer apple-btn">
+      <div class="flex items-center justify-between text-xs font-medium text-[#ff453a] mb-2 font-mono">
         <span>Scenario C</span>
-        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition text-[#ff453a]"></i>
+        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-200 text-[#ff453a]"></i>
       </div>
       <h4 class="text-sm font-semibold text-white tracking-tight">"Can we failover to a domestic supplier?"</h4>
-      <p class="text-xs text-[#86868b] mt-2 leading-relaxed">Reroutes orders from disrupted overseas factories to domestic secondary vendors.</p>
+      <p class="text-xs text-[#86868b] mt-2.5 leading-relaxed">Reroutes orders from disrupted overseas factories to domestic secondary vendors.</p>
     </button>
   </div>
 
-  <div id="quick-scenario-result" class="hidden p-5 rounded-2xl bg-[#161617]/90 border border-[#bf5af2]/40 space-y-2 backdrop-blur-xl">
+  <div id="quick-scenario-result" class="hidden p-5 sm:p-6 rounded-2xl bg-[#161617]/95 border border-[#bf5af2]/40 space-y-3 backdrop-blur-xl animate-apple-scale-in">
     <div class="flex items-center justify-between">
       <span class="text-xs font-medium uppercase tracking-wider text-[#bf5af2] font-mono" id="q-scen-title">Simulation Analysis</span>
-      <span class="text-xs text-[#86868b] font-mono" id="q-scen-time">Calculated in 0.05s</span>
+      <span class="text-xs text-[#86868b] font-mono" id="q-scen-time">Calculated in 0.04s</span>
     </div>
-    <p class="text-sm text-[#f5f5f7] font-normal leading-relaxed" id="q-scen-body">Simulation results will appear here.</p>
+    <div class="text-sm text-[#f5f5f7] font-normal leading-relaxed" id="q-scen-body">Simulation results will appear here.</div>
   </div>
 </section>
 
@@ -279,7 +279,7 @@
 <!-- ========================================================================= -->
 <!-- 5. DEEP DIVE (ANALYST MODE) — ALL 9 TECHNICAL MODULES                     -->
 <!-- ========================================================================= -->
-<section id="expert-tabs-section" class="hidden space-y-6 pt-4 border-t border-white/[0.08]">
+<section id="expert-tabs-section" class="hidden space-y-6 pt-4 border-t border-white/[0.08] animate-apple-fade-in">
   <div class="flex items-center justify-between">
     <div>
       <h3 class="text-lg font-semibold text-white tracking-tight flex items-center gap-2">
@@ -291,37 +291,37 @@
 
   <!-- Apple Segmented Subtab Switcher -->
   <div class="border-b border-white/[0.08] flex flex-wrap gap-1 text-xs font-medium">
-    <button onclick="switchExpertSubTab('abc')" id="subtab-abc" class="subtab-btn pb-3 px-3.5 border-b-2 border-[#2997ff] text-[#2997ff] cursor-pointer transition flex items-center gap-1.5">
+    <button onclick="switchExpertSubTab('abc')" id="subtab-abc" class="subtab-btn pb-3 px-3.5 border-b-2 border-[#2997ff] text-[#2997ff] cursor-pointer transition flex items-center gap-1.5 apple-btn">
       <i data-lucide="grid" class="w-3.5 h-3.5"></i> ABC-XYZ Matrix
     </button>
-    <button onclick="switchExpertSubTab('tts')" id="subtab-tts" class="subtab-btn pb-3 px-3.5 border-b-2 border-transparent text-[#86868b] hover:text-[#f5f5f7] cursor-pointer transition flex items-center gap-1.5">
+    <button onclick="switchExpertSubTab('tts')" id="subtab-tts" class="subtab-btn pb-3 px-3.5 border-b-2 border-transparent text-[#86868b] hover:text-[#f5f5f7] cursor-pointer transition flex items-center gap-1.5 apple-btn">
       <i data-lucide="shield-alert" class="w-3.5 h-3.5"></i> TTS vs TTR Resilience
     </button>
-    <button onclick="switchExpertSubTab('landed')" id="subtab-landed" class="subtab-btn pb-3 px-3.5 border-b-2 border-transparent text-[#86868b] hover:text-[#f5f5f7] cursor-pointer transition flex items-center gap-1.5">
+    <button onclick="switchExpertSubTab('landed')" id="subtab-landed" class="subtab-btn pb-3 px-3.5 border-b-2 border-transparent text-[#86868b] hover:text-[#f5f5f7] cursor-pointer transition flex items-center gap-1.5 apple-btn">
       <i data-lucide="calculator" class="w-3.5 h-3.5"></i> Landed Cost &amp; Tariffs
     </button>
-    <button onclick="switchExpertSubTab('scorecards')" id="subtab-scorecards" class="subtab-btn pb-3 px-3.5 border-b-2 border-transparent text-[#86868b] hover:text-[#f5f5f7] cursor-pointer transition flex items-center gap-1.5">
+    <button onclick="switchExpertSubTab('scorecards')" id="subtab-scorecards" class="subtab-btn pb-3 px-3.5 border-b-2 border-transparent text-[#86868b] hover:text-[#f5f5f7] cursor-pointer transition flex items-center gap-1.5 apple-btn">
       <i data-lucide="award" class="w-3.5 h-3.5"></i> Supplier Scorecards (OTIF)
     </button>
-    <button onclick="switchExpertSubTab('bullwhip')" id="subtab-bullwhip" class="subtab-btn pb-3 px-3.5 border-b-2 border-transparent text-[#86868b] hover:text-[#f5f5f7] cursor-pointer transition flex items-center gap-1.5">
+    <button onclick="switchExpertSubTab('bullwhip')" id="subtab-bullwhip" class="subtab-btn pb-3 px-3.5 border-b-2 border-transparent text-[#86868b] hover:text-[#f5f5f7] cursor-pointer transition flex items-center gap-1.5 apple-btn">
       <i data-lucide="git-commit" class="w-3.5 h-3.5"></i> Bullwhip Suppression
     </button>
-    <button onclick="switchExpertSubTab('obsolescence')" id="subtab-obsolescence" class="subtab-btn pb-3 px-3.5 border-b-2 border-transparent text-[#86868b] hover:text-[#f5f5f7] cursor-pointer transition flex items-center gap-1.5">
+    <button onclick="switchExpertSubTab('obsolescence')" id="subtab-obsolescence" class="subtab-btn pb-3 px-3.5 border-b-2 border-transparent text-[#86868b] hover:text-[#f5f5f7] cursor-pointer transition flex items-center gap-1.5 apple-btn">
       <i data-lucide="calendar-off" class="w-3.5 h-3.5"></i> Obsolescence &amp; Expiry
     </button>
-    <button onclick="switchExpertSubTab('eoq')" id="subtab-eoq" class="subtab-btn pb-3 px-3.5 border-b-2 border-transparent text-[#86868b] hover:text-[#f5f5f7] cursor-pointer transition flex items-center gap-1.5">
+    <button onclick="switchExpertSubTab('eoq')" id="subtab-eoq" class="subtab-btn pb-3 px-3.5 border-b-2 border-transparent text-[#86868b] hover:text-[#f5f5f7] cursor-pointer transition flex items-center gap-1.5 apple-btn">
       <i data-lucide="sprout" class="w-3.5 h-3.5"></i> Wilson EOQ &amp; Green Freight
     </button>
-    <button onclick="switchExpertSubTab('orders')" id="subtab-orders" class="subtab-btn pb-3 px-3.5 border-b-2 border-transparent text-[#86868b] hover:text-[#f5f5f7] cursor-pointer transition flex items-center gap-1.5">
+    <button onclick="switchExpertSubTab('orders')" id="subtab-orders" class="subtab-btn pb-3 px-3.5 border-b-2 border-transparent text-[#86868b] hover:text-[#f5f5f7] cursor-pointer transition flex items-center gap-1.5 apple-btn">
       <i data-lucide="file-text" class="w-3.5 h-3.5"></i> Purchase Orders &amp; EDI 850
     </button>
-    <button onclick="switchExpertSubTab('transfers')" id="subtab-transfers" class="subtab-btn pb-3 px-3.5 border-b-2 border-transparent text-[#86868b] hover:text-[#f5f5f7] cursor-pointer transition flex items-center gap-1.5">
+    <button onclick="switchExpertSubTab('transfers')" id="subtab-transfers" class="subtab-btn pb-3 px-3.5 border-b-2 border-transparent text-[#86868b] hover:text-[#f5f5f7] cursor-pointer transition flex items-center gap-1.5 apple-btn">
       <i data-lucide="truck" class="w-3.5 h-3.5"></i> Multi-Hub Transfers
     </button>
   </div>
 
   <!-- 1. ABC-XYZ Matrix -->
-  <div id="subcontent-abc" class="subcontent apple-glass rounded-2xl p-5 overflow-x-auto shadow-xl">
+  <div id="subcontent-abc" class="subcontent apple-glass rounded-2xl p-5 sm:p-6 overflow-x-auto shadow-xl">
     <div class="mb-3.5 flex items-center justify-between text-xs">
       <span class="text-[#86868b]">Classifies catalog by revenue volume (A/B/C) and forecast volatility (X/Y/Z).</span>
       <span class="font-medium text-[#2997ff] font-mono">Automated Policy Mapping</span>
@@ -343,7 +343,7 @@
   </div>
 
   <!-- 2. TTS vs TTR Resilience -->
-  <div id="subcontent-tts" class="subcontent hidden apple-glass rounded-2xl p-5 overflow-x-auto shadow-xl">
+  <div id="subcontent-tts" class="subcontent hidden apple-glass rounded-2xl p-5 sm:p-6 overflow-x-auto shadow-xl">
     <div class="mb-3.5 flex items-center justify-between text-xs">
       <span class="text-[#86868b]">Evaluates shutdown deficit when Time-to-Recover (TTR) exceeds on-hand Time-to-Survive (TTS).</span>
       <span class="font-medium text-[#bf5af2] font-mono">Digital Twin Network Vulnerability</span>
@@ -365,7 +365,7 @@
   </div>
 
   <!-- 3. Landed Cost & Tariffs -->
-  <div id="subcontent-landed" class="subcontent hidden apple-glass rounded-2xl p-5 space-y-4 shadow-xl">
+  <div id="subcontent-landed" class="subcontent hidden apple-glass rounded-2xl p-5 sm:p-6 space-y-4 shadow-xl">
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
       <div>
         <span class="font-medium text-white block">Delivered Landed Cost Comparison</span>
@@ -378,11 +378,11 @@
         </select>
       </div>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5" id="landed-corridors-grid"></div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4" id="landed-corridors-grid"></div>
   </div>
 
   <!-- 4. Supplier Scorecards -->
-  <div id="subcontent-scorecards" class="subcontent hidden apple-glass rounded-2xl p-5 overflow-x-auto shadow-xl">
+  <div id="subcontent-scorecards" class="subcontent hidden apple-glass rounded-2xl p-5 sm:p-6 overflow-x-auto shadow-xl">
     <div class="mb-3.5 flex items-center justify-between text-xs">
       <span class="text-[#86868b]">Evaluates On-Time In-Full (OTIF %), Lead-Time Variance (&sigma;<sub>L</sub>), and PPM defect rates.</span>
       <span class="font-medium text-[#30d158] font-mono">Vendor Reliability Tiering</span>
@@ -405,7 +405,7 @@
   </div>
 
   <!-- 5. Bullwhip Suppression -->
-  <div id="subcontent-bullwhip" class="subcontent hidden apple-glass rounded-2xl p-5 overflow-x-auto shadow-xl">
+  <div id="subcontent-bullwhip" class="subcontent hidden apple-glass rounded-2xl p-5 sm:p-6 overflow-x-auto shadow-xl">
     <div class="mb-3.5 flex items-center justify-between text-xs">
       <span class="text-[#86868b]">Detects artificial order amplification and applies low-pass damping filters.</span>
       <span class="font-medium text-[#ff9f0a] font-mono">Distortion Mitigation</span>
@@ -428,7 +428,7 @@
   </div>
 
   <!-- 6. Obsolescence & Expiry -->
-  <div id="subcontent-obsolescence" class="subcontent hidden apple-glass rounded-2xl p-5 overflow-x-auto shadow-xl">
+  <div id="subcontent-obsolescence" class="subcontent hidden apple-glass rounded-2xl p-5 sm:p-6 overflow-x-auto shadow-xl">
     <div class="mb-3.5 flex items-center justify-between text-xs">
       <span class="text-[#86868b]">Scans inventory for shelf-life expiration and technological obsolescence write-down risks.</span>
       <span class="font-medium text-[#ff453a] font-mono">Working Capital Defense</span>
@@ -451,7 +451,7 @@
   </div>
 
   <!-- 7. Wilson EOQ & Green Freight -->
-  <div id="subcontent-eoq" class="subcontent hidden apple-glass rounded-2xl p-5 space-y-4 shadow-xl">
+  <div id="subcontent-eoq" class="subcontent hidden apple-glass rounded-2xl p-5 sm:p-6 space-y-4 shadow-xl">
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
       <div>
         <span class="font-medium text-white block">Wilson Economic Order Quantity &amp; ESG Carbon Footprint</span>
@@ -464,11 +464,11 @@
         </select>
       </div>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="eoq-analysis-container"></div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4.5" id="eoq-analysis-container"></div>
   </div>
 
   <!-- 8. Purchase Orders & EDI 850 Inspector -->
-  <div id="subcontent-orders" class="subcontent hidden apple-glass rounded-2xl p-5 overflow-x-auto space-y-3.5 shadow-xl">
+  <div id="subcontent-orders" class="subcontent hidden apple-glass rounded-2xl p-5 sm:p-6 overflow-x-auto space-y-3.5 shadow-xl">
     <div class="flex items-center justify-between text-xs">
       <span class="text-[#86868b]">All Purchase Orders drafted autonomously or manually, with ANSI X12 EDI 850 payloads.</span>
       <span class="font-medium text-[#30d158] font-mono">ERP Transmissions</span>
@@ -491,7 +491,7 @@
   </div>
 
   <!-- 9. Multi-Warehouse Transfers -->
-  <div id="subcontent-transfers" class="subcontent hidden apple-glass rounded-2xl p-5 overflow-x-auto space-y-3.5 shadow-xl">
+  <div id="subcontent-transfers" class="subcontent hidden apple-glass rounded-2xl p-5 sm:p-6 overflow-x-auto space-y-3.5 shadow-xl">
     <div class="flex items-center justify-between text-xs">
       <span class="text-[#86868b]">Averts stockouts by dispatching surplus inventory from donor warehouses across the network.</span>
       <span class="font-medium text-[#2997ff] font-mono">Intra-Network Balancing</span>
@@ -519,7 +519,7 @@
 <!-- MODAL 1: PLAIN-ENGLISH AI EXPLANATION MODAL (Apple Sheet Style)           -->
 <!-- ========================================================================= -->
 <div id="ai-action-modal" class="fixed inset-0 bg-black/80 backdrop-blur-xl z-50 hidden flex items-center justify-center p-4">
-  <div class="bg-[#1c1c1e] border border-white/[0.12] rounded-3xl max-w-2xl w-full shadow-2xl overflow-hidden space-y-4 p-6 sm:p-7">
+  <div class="bg-[#1c1c1e] border border-white/[0.12] rounded-3xl max-w-2xl w-full shadow-2xl overflow-hidden space-y-4 p-6 sm:p-7 animate-apple-scale-in">
     <div class="flex items-center justify-between pb-4 border-b border-white/[0.08]">
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-2xl bg-[#2997ff]/10 text-[#2997ff] border border-[#2997ff]/20 flex items-center justify-center shrink-0">
@@ -530,7 +530,7 @@
           <p class="text-xs text-[#86868b] font-mono" id="modal-sku-code">SKU Analysis</p>
         </div>
       </div>
-      <button onclick="closeAIModal()" class="w-8 h-8 rounded-full bg-[#2c2c2e] text-[#86868b] hover:text-white flex items-center justify-center transition cursor-pointer">
+      <button onclick="closeAIModal()" class="w-8 h-8 rounded-full bg-[#2c2c2e] text-[#86868b] hover:text-white flex items-center justify-center transition cursor-pointer apple-btn">
         <i data-lucide="x" class="w-4 h-4"></i>
       </button>
     </div>
@@ -560,10 +560,10 @@
     </div>
 
     <div class="pt-3 flex justify-end gap-2.5">
-      <button onclick="closeAIModal()" class="px-4 py-2 rounded-full bg-[#2c2c2e] hover:bg-[#38383a] text-[#f5f5f7] text-xs font-medium transition cursor-pointer">
+      <button onclick="closeAIModal()" class="px-4 py-2 rounded-full bg-[#2c2c2e] hover:bg-[#38383a] text-[#f5f5f7] text-xs font-medium transition cursor-pointer apple-btn">
         Close
       </button>
-      <button onclick="triggerAutonomousCycle(); closeAIModal();" class="px-5 py-2 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white text-xs font-medium transition flex items-center gap-1.5 shadow-lg shadow-[#0071e3]/30 cursor-pointer active:scale-95">
+      <button onclick="triggerAutonomousCycle(); closeAIModal();" class="px-5 py-2 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white text-xs font-medium transition flex items-center gap-1.5 shadow-lg shadow-[#0071e3]/30 cursor-pointer apple-btn">
         <i data-lucide="zap" class="w-3.5 h-3.5"></i> Autonomously Execute Order
       </button>
     </div>
@@ -575,7 +575,7 @@
 <!-- MODAL 2: ANSI X12 EDI 850 RAW DOCUMENT INSPECTOR (Apple Sheet)            -->
 <!-- ========================================================================= -->
 <div id="edi-inspector-modal" class="fixed inset-0 bg-black/80 backdrop-blur-xl z-50 hidden flex items-center justify-center p-4">
-  <div class="bg-[#1c1c1e] border border-white/[0.12] rounded-3xl max-w-3xl w-full shadow-2xl overflow-hidden space-y-4 p-6 sm:p-7">
+  <div class="bg-[#1c1c1e] border border-white/[0.12] rounded-3xl max-w-3xl w-full shadow-2xl overflow-hidden space-y-4 p-6 sm:p-7 animate-apple-scale-in">
     <div class="flex items-center justify-between pb-4 border-b border-white/[0.08]">
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-2xl bg-[#30d158]/10 text-[#30d158] border border-[#30d158]/20 flex items-center justify-center shrink-0">
@@ -589,7 +589,7 @@
           <p class="text-xs text-[#86868b] font-normal">Standard EDI transaction envelope transmitted to enterprise ERPs and vendor networks.</p>
         </div>
       </div>
-      <button onclick="closeEDIModal()" class="w-8 h-8 rounded-full bg-[#2c2c2e] text-[#86868b] hover:text-white flex items-center justify-center transition cursor-pointer">
+      <button onclick="closeEDIModal()" class="w-8 h-8 rounded-full bg-[#2c2c2e] text-[#86868b] hover:text-white flex items-center justify-center transition cursor-pointer apple-btn">
         <i data-lucide="x" class="w-4 h-4"></i>
       </button>
     </div>
@@ -597,7 +597,7 @@
     <div class="space-y-3">
       <div class="flex items-center justify-between text-xs">
         <span class="text-[#86868b] font-mono">Format: ANSI X12 Version 004010 • Transaction: 850 (Purchase Order)</span>
-        <button onclick="copyEDIPayload()" class="px-3.5 py-1.5 rounded-full bg-[#2c2c2e] hover:bg-[#38383a] text-[#2997ff] border border-white/[0.08] font-mono text-[11px] transition flex items-center gap-1.5 cursor-pointer">
+        <button onclick="copyEDIPayload()" class="px-3.5 py-1.5 rounded-full bg-[#2c2c2e] hover:bg-[#38383a] text-[#2997ff] border border-white/[0.08] font-mono text-[11px] transition flex items-center gap-1.5 cursor-pointer apple-btn">
           <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy Payload
         </button>
       </div>
@@ -607,7 +607,7 @@
     </div>
 
     <div class="pt-2 flex justify-end">
-      <button onclick="closeEDIModal()" class="px-5 py-2 rounded-full bg-[#2c2c2e] hover:bg-[#38383a] text-[#f5f5f7] text-xs font-medium transition cursor-pointer">
+      <button onclick="closeEDIModal()" class="px-5 py-2 rounded-full bg-[#2c2c2e] hover:bg-[#38383a] text-[#f5f5f7] text-xs font-medium transition cursor-pointer apple-btn">
         Close Inspector
       </button>
     </div>
@@ -632,15 +632,18 @@
   function showToast(title, msg, isError = false) {
     const toast = document.getElementById('toast-notification');
     const icon = document.getElementById('toast-icon');
+    const iconWrap = document.getElementById('toast-icon-wrap');
     document.getElementById('toast-title').innerText = title;
     document.getElementById('toast-msg').innerText = msg;
     
     if (isError) {
       icon.className = 'fa-solid fa-circle-exclamation text-[#ff453a] text-base';
-      toast.className = 'fixed top-20 right-6 z-50 bg-[#1c1c1e]/95 border border-[#ff453a]/40 text-white px-4.5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 backdrop-blur-2xl transition-all duration-300 max-w-md';
+      if (iconWrap) iconWrap.className = 'w-8 h-8 rounded-full bg-[#ff453a]/20 text-[#ff453a] flex items-center justify-center shrink-0';
+      toast.className = 'fixed top-20 right-6 z-50 bg-[#1c1c1e]/95 border border-[#ff453a]/40 text-white px-4.5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 backdrop-blur-2xl transition-all duration-300 max-w-md animate-apple-scale-in';
     } else {
       icon.className = 'fa-solid fa-circle-check text-[#30d158] text-base';
-      toast.className = 'fixed top-20 right-6 z-50 bg-[#1c1c1e]/95 border border-[#30d158]/30 text-white px-4.5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 backdrop-blur-2xl transition-all duration-300 max-w-md';
+      if (iconWrap) iconWrap.className = 'w-8 h-8 rounded-full bg-[#30d158]/20 text-[#30d158] flex items-center justify-center shrink-0';
+      toast.className = 'fixed top-20 right-6 z-50 bg-[#1c1c1e]/95 border border-[#30d158]/30 text-white px-4.5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 backdrop-blur-2xl transition-all duration-300 max-w-md animate-apple-scale-in';
     }
 
     toast.classList.remove('hidden');
@@ -653,12 +656,12 @@
     const expertSection = document.getElementById('expert-tabs-section');
 
     if (mode === 'executive') {
-      btnExec.className = 'px-3.5 py-1.5 rounded-full bg-[#2c2c2e] text-white shadow-sm transition-all duration-200 flex items-center gap-1.5 cursor-pointer';
-      btnExp.className = 'px-3.5 py-1.5 rounded-full text-[#86868b] hover:text-[#f5f5f7] transition-all duration-200 flex items-center gap-1.5 cursor-pointer';
+      btnExec.className = 'px-3.5 py-1.5 rounded-full bg-[#2c2c2e] text-white shadow-sm transition-all duration-200 flex items-center gap-1.5 cursor-pointer apple-btn';
+      btnExp.className = 'px-3.5 py-1.5 rounded-full text-[#86868b] hover:text-[#f5f5f7] transition-all duration-200 flex items-center gap-1.5 cursor-pointer apple-btn';
       expertSection.classList.add('hidden');
     } else {
-      btnExp.className = 'px-3.5 py-1.5 rounded-full bg-[#0071e3] text-white shadow-sm transition-all duration-200 flex items-center gap-1.5 cursor-pointer';
-      btnExec.className = 'px-3.5 py-1.5 rounded-full text-[#86868b] hover:text-[#f5f5f7] transition-all duration-200 flex items-center gap-1.5 cursor-pointer';
+      btnExp.className = 'px-3.5 py-1.5 rounded-full bg-[#0071e3] text-white shadow-sm transition-all duration-200 flex items-center gap-1.5 cursor-pointer apple-btn';
+      btnExec.className = 'px-3.5 py-1.5 rounded-full text-[#86868b] hover:text-[#f5f5f7] transition-all duration-200 flex items-center gap-1.5 cursor-pointer apple-btn';
       expertSection.classList.remove('hidden');
       switchExpertSubTab(currentExpertSubTab);
     }
@@ -681,6 +684,7 @@
     const activeContent = document.getElementById('subcontent-' + subId);
     if (activeContent) {
       activeContent.classList.remove('hidden');
+      activeContent.classList.add('animate-apple-fade-in');
     }
 
     loadExpertSubTab(subId);
@@ -700,12 +704,12 @@
       const textToggle = document.getElementById('text-ap-toggle');
 
       if (data.is_enabled) {
-        pill.className = 'inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#30d158]/10 text-[#30d158] border border-[#30d158]/20 font-mono';
+        pill.className = 'inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#30d158]/10 text-[#30d158] border border-[#30d158]/20 font-mono transition-all duration-300';
         pill.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-[#30d158] animate-pulse"></span> ACTIVE &amp; EXECUTING';
         iconToggle.className = 'fa-solid fa-pause text-[#ff9f0a] text-xs';
         textToggle.innerText = 'Pause Auto-Pilot';
       } else {
-        pill.className = 'inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#2c2c2e] text-[#86868b] border border-white/[0.08] font-mono';
+        pill.className = 'inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#2c2c2e] text-[#86868b] border border-white/[0.08] font-mono transition-all duration-300';
         pill.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-zinc-500"></span> PAUSED / MANUAL ONLY';
         iconToggle.className = 'fa-solid fa-play text-[#30d158] text-xs';
         textToggle.innerText = 'Activate Auto-Pilot';
@@ -815,7 +819,7 @@
         }
 
         const div = document.createElement('div');
-        div.className = 'bg-[#161617] p-3.5 rounded-2xl border border-white/[0.06] hover:border-white/[0.12] transition-all flex items-center justify-between gap-3 text-xs';
+        div.className = 'bg-[#161617] p-3.5 rounded-2xl border border-white/[0.06] hover:border-white/[0.14] transition-all flex items-center justify-between gap-3 text-xs';
         div.innerHTML = `
           <div class="flex items-center gap-2.5 min-w-0">
             <span class="px-2.5 py-0.5 rounded-full text-[10px] font-medium border ${badgeColor} whitespace-nowrap flex items-center gap-1 font-mono">
@@ -864,13 +868,13 @@
         const label = document.getElementById('exec-score-label');
         if (score >= 80) {
           label.innerText = 'Protected';
-          label.className = 'text-xs font-medium text-[#30d158] px-2.5 py-0.5 rounded-full bg-[#30d158]/10 border border-[#30d158]/20 font-mono';
+          label.className = 'text-xs font-medium text-[#30d158] px-2.5 py-0.5 rounded-full bg-[#30d158]/10 border border-[#30d158]/20 font-mono transition-all duration-300';
         } else if (score >= 50) {
           label.innerText = 'Moderate Risk';
-          label.className = 'text-xs font-medium text-[#ff9f0a] px-2.5 py-0.5 rounded-full bg-[#ff9f0a]/10 border border-[#ff9f0a]/20 font-mono';
+          label.className = 'text-xs font-medium text-[#ff9f0a] px-2.5 py-0.5 rounded-full bg-[#ff9f0a]/10 border border-[#ff9f0a]/20 font-mono transition-all duration-300';
         } else {
           label.innerText = 'High Exposure';
-          label.className = 'text-xs font-medium text-[#ff453a] px-2.5 py-0.5 rounded-full bg-[#ff453a]/10 border border-[#ff453a]/20 font-mono';
+          label.className = 'text-xs font-medium text-[#ff453a] px-2.5 py-0.5 rounded-full bg-[#ff453a]/10 border border-[#ff453a]/20 font-mono transition-all duration-300';
         }
       }
 
@@ -928,12 +932,12 @@
   function filterExecList(type) {
     currentExecFilter = type;
     ['all', 'urg', 'safe'].forEach(k => {
-      document.getElementById('flt-' + k).className = 'px-3.5 py-1.5 rounded-full text-[#86868b] hover:text-[#f5f5f7] font-medium transition cursor-pointer';
+      document.getElementById('flt-' + k).className = 'px-3.5 py-1.5 rounded-full text-[#86868b] hover:text-[#f5f5f7] font-medium transition cursor-pointer apple-btn';
     });
 
-    if (type === 'ALL') document.getElementById('flt-all').className = 'px-3.5 py-1.5 rounded-full bg-[#2c2c2e] text-white font-medium transition cursor-pointer';
-    if (type === 'URGENT') document.getElementById('flt-urg').className = 'px-3.5 py-1.5 rounded-full bg-[#ff453a] text-white font-medium transition cursor-pointer';
-    if (type === 'SAFE') document.getElementById('flt-safe').className = 'px-3.5 py-1.5 rounded-full bg-[#30d158] text-black font-semibold transition cursor-pointer';
+    if (type === 'ALL') document.getElementById('flt-all').className = 'px-3.5 py-1.5 rounded-full bg-[#2c2c2e] text-white font-medium transition cursor-pointer apple-btn';
+    if (type === 'URGENT') document.getElementById('flt-urg').className = 'px-3.5 py-1.5 rounded-full bg-[#ff453a] text-white font-medium transition cursor-pointer apple-btn';
+    if (type === 'SAFE') document.getElementById('flt-safe').className = 'px-3.5 py-1.5 rounded-full bg-[#30d158] text-black font-semibold transition cursor-pointer apple-btn';
 
     renderExecutiveProductCards();
   }
@@ -979,7 +983,7 @@
       }
 
       const card = document.createElement('div');
-      card.className = `apple-glass-card border ${cardBorder} rounded-3xl p-5 sm:p-6 space-y-4 flex flex-col justify-between transition-all duration-200`;
+      card.className = `apple-glass-card border ${cardBorder} rounded-3xl p-5 sm:p-6 space-y-4 flex flex-col justify-between`;
       card.innerHTML = `
         <div>
           <div class="flex items-start justify-between gap-2">
@@ -1007,7 +1011,7 @@
         </div>
 
         <div class="pt-1">
-          <button onclick="triggerAIRepletion('${sku}')" class="w-full py-2.5 rounded-full ${isUrgent ? 'bg-[#ff453a] hover:bg-[#ff5b52] text-white shadow-lg shadow-[#ff453a]/25' : 'bg-[#0071e3] hover:bg-[#0077ed] text-white shadow-lg shadow-[#0071e3]/25'} font-medium text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer active:scale-95">
+          <button onclick="triggerAIRepletion('${sku}')" class="w-full py-2.5 rounded-full ${isUrgent ? 'bg-[#ff453a] hover:bg-[#ff5b52] text-white shadow-lg shadow-[#ff453a]/25' : 'bg-[#0071e3] hover:bg-[#0077ed] text-white shadow-lg shadow-[#0071e3]/25'} font-medium text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer apple-btn">
             <i data-lucide="bot" class="w-3.5 h-3.5"></i> ${isUrgent ? 'Restock with AI Now' : 'Check AI Recommendations'}
           </button>
         </div>
@@ -1049,7 +1053,7 @@
   }
 
   // =========================================================================
-  // WHAT-IF SCENARIOS CONTROLLER
+  // WHAT-IF SCENARIOS CONTROLLER (Connected & Verified)
   // =========================================================================
   async function runQuickScenario(type) {
     const box = document.getElementById('quick-scenario-result');
@@ -1057,16 +1061,26 @@
     const body = document.getElementById('q-scen-body');
     box.classList.remove('hidden');
 
-    let payload = {};
+    let targetSku = (rawInventory && rawInventory.length > 0) ? rawInventory[0].product.sku : "SKU-ELEC-1001";
+    let payload = { product_sku: targetSku };
+    let scenarioName = "";
+
     if (type === 'demand_spike') {
-      payload = { demand_surge_factor: 1.4, lead_time_delay_days: 0, scenario_name: "40% Surge" };
+      payload.demand_surge_percent = 40.0;
+      payload.lead_time_delay_days = 0;
+      scenarioName = "40% Viral Sales Surge";
     } else if (type === 'port_delay') {
-      payload = { demand_surge_factor: 1.0, lead_time_delay_days: 14, scenario_name: "2-Week Delay" };
+      payload.demand_surge_percent = 0.0;
+      payload.lead_time_delay_days = 14;
+      scenarioName = "2-Week Port Clearance Delay";
     } else {
-      payload = { demand_surge_factor: 1.0, lead_time_delay_days: 21, scenario_name: "Supplier Halt" };
+      payload.demand_surge_percent = 0.0;
+      payload.lead_time_delay_days = 21;
+      payload.supplier_risk_spike = 0.5;
+      scenarioName = "Supplier Halt & Domestic Failover";
     }
 
-    body.innerHTML = '<span class="text-[#2997ff] font-mono">Running digital twin simulation...</span>';
+    body.innerHTML = '<span class="text-[#2997ff] font-mono animate-pulse">Running digital twin simulation...</span>';
     try {
       const res = await fetch('/api/v1/simulation/what-if/', {
         method: 'POST',
@@ -1074,13 +1088,34 @@
         body: JSON.stringify(payload)
       });
       const data = await res.json();
-      const sim = data.simulation_result;
+      const stressed = data.stressed_metrics;
+      const hedge = data.hedging_recommendation;
 
-      title.innerText = `Simulation Outcome: ${data.scenario_applied}`;
+      title.innerText = `Simulation Outcome: ${scenarioName} (${data.sku})`;
       body.innerHTML = `
-        Under this shock, dynamic safety stock rises to <strong class="font-mono text-[#2997ff]">${sim.recommended_dynamic_safety_stock} units</strong>.
-        Predicted stockout occurs on <strong class="font-mono text-[#ff453a]">${sim.predicted_stockout_date}</strong>.
-        <br><span class="text-[#2997ff] font-medium">StockSense Action:</span> ${sim.mitigation_plan}
+        <div class="space-y-2.5">
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs py-1">
+            <div class="bg-[#121214] p-3 rounded-xl border border-white/[0.04]">
+              <span class="text-[#86868b] block text-[10px]">Stockout Runway:</span>
+              <span class="text-[#ff453a] font-mono font-semibold text-sm mt-0.5 block">${stressed.days_to_stockout} days</span>
+            </div>
+            <div class="bg-[#121214] p-3 rounded-xl border border-white/[0.04]">
+              <span class="text-[#86868b] block text-[10px]">Optimal Safety Stock:</span>
+              <span class="text-[#2997ff] font-mono font-semibold text-sm mt-0.5 block">${stressed.optimal_safety_stock} units</span>
+            </div>
+            <div class="bg-[#121214] p-3 rounded-xl border border-white/[0.04]">
+              <span class="text-[#86868b] block text-[10px]">Hazard Level:</span>
+              <span class="text-[#ff9f0a] font-mono font-semibold text-sm mt-0.5 block">${stressed.hazard_level}</span>
+            </div>
+            <div class="bg-[#121214] p-3 rounded-xl border border-white/[0.04]">
+              <span class="text-[#86868b] block text-[10px]">Hedge Order:</span>
+              <span class="text-[#30d158] font-mono font-semibold text-sm mt-0.5 block">${hedge.recommended_order_quantity} units</span>
+            </div>
+          </div>
+          <div class="text-xs text-[#f5f5f7] leading-relaxed pt-1">
+            <span class="text-[#2997ff] font-medium">StockSense Action:</span> ${hedge.action === 'EXPEDITE_HEDGE_PO' ? 'Autonomous expedite hedge PO recommended to prevent stockout under shock.' : 'Dynamic safety stock buffer recalibrated.'}
+          </div>
+        </div>
       `;
     } catch (e) {
       body.innerText = "Error running scenario: " + e.message;
@@ -1400,11 +1435,11 @@
           <td class="py-3 px-3.5 text-[#86868b] font-mono text-[11px]">${po.approved_by || 'Awaiting'}</td>
           <td class="py-3 px-3.5 text-right whitespace-nowrap space-x-1.5">
             ${!isTransmitted ? `
-              <button onclick="transmitSinglePO('${po.id}')" class="px-3 py-1 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white font-medium text-[10px] transition cursor-pointer active:scale-95 shadow-sm shadow-[#0071e3]/20">
+              <button onclick="transmitSinglePO('${po.id}')" class="px-3 py-1 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white font-medium text-[10px] transition cursor-pointer apple-btn shadow-sm shadow-[#0071e3]/20">
                 <i data-lucide="send" class="w-3 h-3 inline mr-1"></i> Transmit Now
               </button>
             ` : ''}
-            <button onclick="inspectEDI('${po.id}', '${po.po_number}')" class="px-3 py-1 rounded-full bg-[#2c2c2e] hover:bg-[#38383a] text-[#2997ff] border border-white/[0.08] font-mono text-[10px] transition cursor-pointer active:scale-95">
+            <button onclick="inspectEDI('${po.id}', '${po.po_number}')" class="px-3 py-1 rounded-full bg-[#2c2c2e] hover:bg-[#38383a] text-[#2997ff] border border-white/[0.08] font-mono text-[10px] transition cursor-pointer apple-btn">
               <i data-lucide="file-code" class="w-3 h-3 inline mr-1"></i> EDI 850
             </button>
           </td>
@@ -1496,7 +1531,7 @@
           <td class="py-3 px-3.5">${statusBadge}</td>
           <td class="py-3 px-3.5 text-right">
             ${isPending ? `
-              <button onclick="dispatchSingleTransfer('${t.id}')" class="px-3 py-1 rounded-full bg-[#30d158] hover:bg-[#28b84d] text-black font-semibold text-[10px] transition cursor-pointer active:scale-95 shadow-sm shadow-[#30d158]/20">
+              <button onclick="dispatchSingleTransfer('${t.id}')" class="px-3 py-1 rounded-full bg-[#30d158] hover:bg-[#28b84d] text-black font-semibold text-[10px] transition cursor-pointer apple-btn shadow-sm shadow-[#30d158]/20">
                 <i data-lucide="truck" class="w-3 h-3 inline mr-1"></i> Dispatch Transfer
               </button>
             ` : '<span class="text-[#86868b] text-[10px] font-mono">Dispatched</span>'}

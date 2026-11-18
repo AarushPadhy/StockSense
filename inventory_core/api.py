@@ -416,15 +416,20 @@ class WhatIfSimulationView(APIView):
         serializer.is_valid(raise_exception=True)
         data = serializer.validated_data
 
-        if not Product.objects.filter(sku=data['product_sku']).exists():
+        product_sku = data.get('product_sku')
+        if not product_sku:
+            prod = Product.objects.first()
+            product_sku = prod.sku if prod else "SKU-ELEC-1001"
+
+        if not Product.objects.filter(sku=product_sku).exists():
             return Response(
-                {"error": f"Product with SKU '{data['product_sku']}' does not exist."},
+                {"error": f"Product with SKU '{product_sku}' does not exist."},
                 status=status.HTTP_404_NOT_FOUND
             )
 
         try:
             simulation_results = SupplyChainSimulator.run_what_if_scenario(
-                product_sku=data['product_sku'],
+                product_sku=product_sku,
                 demand_surge_percent=data.get('demand_surge_percent', 0.0),
                 lead_time_delay_days=data.get('lead_time_delay_days', 0),
                 supplier_risk_spike=data.get('supplier_risk_spike', 0.0),

@@ -1,6 +1,6 @@
 # Frontend Integration & REST API Specification Guide
 
-This comprehensive reference is designed for frontend developers building modern single-page applications (React, Next.js, Vue, Angular, Svelte) on top of the **AI-Driven Supply Chain & Inventory Optimization Platform**.
+This comprehensive reference is designed for frontend developers building modern single-page applications (React, Next.js, Vue, Angular, Svelte) or using the built-in Apple-designed dashboard on top of the **StockSense Autonomous Inventory Intelligence Platform**.
 
 ---
 
