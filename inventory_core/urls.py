@@ -47,8 +47,11 @@ router.register(r'warehouse-inventory', WarehouseInventoryViewSet, basename='war
 router.register(r'stock-transfers', StockTransferRecommendationViewSet, basename='stock-transfer')
 
 urlpatterns = [
-    # Explicit custom non-CRUD paths (routed before default router)
+    # Explicit custom non-CRUD paths (routed before default router to avoid pk shadowing)
     path('suppliers/scorecards/', SupplierScorecardsListView.as_view(), name='supplier-scorecards-list'),
+    path('disruptions/trigger-scan/', TriggerDisruptionScanView.as_view(), name='trigger-disruption-scan'),
+    path('disruptions/semantic-search/', SemanticDisruptionSearchView.as_view(), name='semantic-disruption-search'),
+    path('replenishment/draft-po/', TriggerReplenishmentActionView.as_view(), name='trigger-draft-po'),
 
     # Router endpoints (CRUD + custom detail actions)
     path('', include(router.urls)),
@@ -56,20 +59,11 @@ urlpatterns = [
     # Replenishment Telemetry & Analytics Dashboard
     path('dashboard/replenishment/', ReplenishmentDashboardView.as_view(), name='replenishment-dashboard'),
 
-    # Autonomous Multi-Agent Action Trigger
-    path('replenishment/draft-po/', TriggerReplenishmentActionView.as_view(), name='trigger-draft-po'),
-
     # High-Performance Polars Ingestion
     path('ingestion/upload-csv/', CSVDataIngestionView.as_view(), name='upload-csv-ingestion'),
 
-    # External Disruption Monitor & RAG Scan
-    path('disruptions/trigger-scan/', TriggerDisruptionScanView.as_view(), name='trigger-disruption-scan'),
-
     # What-If Scenario Simulation
     path('simulation/what-if/', WhatIfSimulationView.as_view(), name='what-if-simulation'),
-
-    # Semantic Vector Search (pgvector)
-    path('disruptions/semantic-search/', SemanticDisruptionSearchView.as_view(), name='semantic-disruption-search'),
 
     # Advanced Competitive Analytics & Matrix Views
     path('analytics/abc-xyz/', ABCXYZMatrixView.as_view(), name='analytics-abc-xyz'),
